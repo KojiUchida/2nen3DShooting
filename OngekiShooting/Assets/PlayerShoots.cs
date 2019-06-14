@@ -8,26 +8,33 @@ public class PlayerShoots : MonoBehaviour
     public GameObject bullet;
     public Transform muzzle;
     public float speed = 100;
+    public float shootsTime = 0.2f;
+    private float time;
     void Start()
     {
-        
+        time = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         Shoots();
+        time += Time.deltaTime;
     }
 
     void Shoots()
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            GameObject bullets = Instantiate(bullet) as GameObject;
-            Vector3 force;
-            force = this.gameObject.transform.forward * speed;
-            bullets.GetComponent<Rigidbody>().AddForce(force);
-            bullets.transform.position = muzzle.position;
+            if (time >= shootsTime)
+            {
+                GameObject bullets = Instantiate(bullet) as GameObject;
+                Vector3 force;
+                force = this.gameObject.transform.forward * speed;
+                bullets.GetComponent<Rigidbody>().AddForce(force);
+                bullets.transform.position = muzzle.position;
+                time = 0;
+            }
         }
     }
 }
