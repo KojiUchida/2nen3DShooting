@@ -24,7 +24,7 @@ public class PlayerShoots : MonoBehaviour
 
     void Shoots()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Z))
         {
             if (time >= shootsTime)
             {

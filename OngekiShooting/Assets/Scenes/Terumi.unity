@@ -399,8 +399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 2878587715150794118, guid: 8627b0c8c842e0f45b90d761f1e34eab, type: 3}
   muzzle: {fileID: 1386778345}
-  speed: 1000
-  shootsTime: 5
+  speed: 5000
+  shootsTime: 1
 --- !u!114 &361176597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,6 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  player: {fileID: 796018860}
 --- !u!114 &361176598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0b372737cbd5e45b1610de5e4a5102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 100
   invincibleTime: 3
 --- !u!1 &534669902
 GameObject:
@@ -637,7 +638,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4790767624333903567, guid: d3e32766aee3eff408396fa6d432e7d4, type: 3}
   muzzle: {fileID: 1930998608}
-  speed: 1000
+  speed: 2500
+  shootsTime: 0.1
 --- !u!114 &796018867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b56662ffdddee34fb2045fb6509040b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
 --- !u!114 &796018868
 MonoBehaviour:
   m_ObjectHideFlags: 0

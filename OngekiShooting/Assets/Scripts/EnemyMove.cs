@@ -7,11 +7,14 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     Rigidbody rigidbody;
     public float speed = 5;
-    private bool Right;
+    public GameObject player;
+    private Rigidbody playerRig;
+    
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        Right = true;
+        playerRig = player.GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -22,25 +25,13 @@ public class EnemyMove : MonoBehaviour
 
     void Move()
     {
-        if (Right)
-        {
-            rigidbody.velocity += new Vector3(speed, 0, 0);
-        }
-        else if(!Right)
-        {
-            rigidbody.velocity += new Vector3(-speed, 0, 0);
-        }
+        rigidbody.position += new Vector3(playerRig.position.x - rigidbody.position.x, 0,-10) *  Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Kabe")
         {
-            switch (Right)
-            {
-                case true:Right = false;break;
-                case false:Right = true;break;
-            }
         }
     }
 }
