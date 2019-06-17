@@ -60,16 +60,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EnemyManager.cs" />
-    <Compile Include="Assets\Scripts\DeadBullet.cs" />
-    <Compile Include="Assets\Scripts\EnemyBullet.cs" />
-    <Compile Include="Assets\Scripts\EnemyHP.cs" />
-    <Compile Include="Assets\Scripts\EnemyMove.cs" />
-    <Compile Include="Assets\Scripts\EnemyShoots.cs" />
-    <Compile Include="Assets\Scripts\PlayerBullet.cs" />
-    <Compile Include="Assets\Scripts\PlayerHP.cs" />
-    <Compile Include="Assets\Scripts\PlayerMove.cs" />
-    <Compile Include="Assets\Scripts\PlayerShoots.cs" />
+    <Compile Include="Assets\Scripts\Magager\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Magager\PauseManager.cs" />
+    <Compile Include="Assets\Scripts\Player\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerBullet.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerHP.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerShoots.cs" />
+    <Compile Include="Assets\Scripts\System\SceneSystem.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Kemomimi/2nen3DShooting/OngekiShooting/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
