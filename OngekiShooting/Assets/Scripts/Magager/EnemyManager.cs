@@ -4,16 +4,41 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    private List<GameObject> EnemyList;
+    [SerializeField, Header("読み込むCSVファイル名")]
+    string fileName;
+    [SerializeField, Header("出現する敵のプレファブ")]
+    Enemy[] spawnEnemies;
+    [SerializeField, Header("出現時の高さ")]
+    float y = 2f;
+
+    private List<EnemySpawnData> spawnDatas;
+    private float timeElapsed;
+
     // Start is called before the first frame update
     void Start()
     {
-        EnemyList = new List<GameObject>();
+        spawnDatas = CSVReader.ReadEnemySpawnData(fileName, y);
+        timeElapsed = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        timeElapsed += Time.deltaTime;
+        SpawnEnemy();
+    }
+
+    void SpawnEnemy()
+    {
+        if (spawnDatas == null) return;
+        var dataList = spawnDatas.FindAll(data => data.spawnTiming <= timeElapsed);
+        foreach (var data in dataList)
+        {
+            Enemy enemy = spawnEnemies[(int)data.enemyType];
+
+            enemy.SetMove(data.moveType);
+
+            Instantiate(enemy, data.position, Quaternion.identity);
+        }
     }
 }

@@ -19,12 +19,13 @@ public static class CSVReader
 
                 var values = line.Split(',');
 
-                float x = float.Parse(values[0]);
-                float z = float.Parse(values[1]);
-                EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), values[2]);
-                MoveType moveType = (MoveType)Enum.Parse(typeof(MoveType), values[3]);
+                float spawntiming = float.Parse(values[0]);
+                float x = float.Parse(values[1]);
+                float z = float.Parse(values[2]);
+                EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), values[3]);
+                MoveType moveType = (MoveType)Enum.Parse(typeof(MoveType), values[4]);
 
-                data.Add(new EnemySpawnData(new Vector3(x, y, z), enemyType, moveType));
+                data.Add(new EnemySpawnData(spawntiming, new Vector3(x, y, z), enemyType, moveType));
             }
         }
         return data;
