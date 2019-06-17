@@ -71,6 +71,8 @@
     <Compile Include="Assets\Scripts\Player\PlayerHP.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerShoots.cs" />
+    <Compile Include="Assets\Scripts\System\CSVReader.cs" />
+    <Compile Include="Assets\Scripts\System\EnemySpawnData.cs" />
     <Compile Include="Assets\Scripts\System\SceneSystem.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/GitHub/2nen3DShooting/OngekiShooting/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
