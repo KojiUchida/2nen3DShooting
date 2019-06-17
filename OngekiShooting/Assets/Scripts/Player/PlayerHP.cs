@@ -30,7 +30,7 @@ public class PlayerHP : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "EnemyBullet")
+        if (collision.transform.tag == "EnemyBullet" || collision.transform.tag == "Enemy") 
         {
             if (invincibleTime <= countTime)
             {
