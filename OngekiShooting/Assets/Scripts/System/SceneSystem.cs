@@ -25,30 +25,37 @@ public class SceneSystem : MonoBehaviour
     void TitleLoad()
     {
         if (sceneType != SceneType.Title) return;
-        LoadScene("Game");
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        LoadScene("GamePlay");
     }
 
     void GamePlayLoad()
     {
         if (sceneType != SceneType.GamePlay) return;
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         LoadScene("Result");
+        if(Input.GetKeyDown(KeyCode.Alpha2))
+        LoadScene("GameOver");
     }
 
     void ResultLoad()
     {
         if (sceneType != SceneType.Result) return;
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         LoadScene("Ending");
     }
     void EndingLoad()
     {
         if (sceneType != SceneType.Ending) return;
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         LoadScene("Title");
     }
 
     void GameOverLoad()
     {
-        if (sceneType != SceneType.Ending) return;
-        LoadScene("GameOver");
+        if (sceneType != SceneType.GameOver) return;
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        LoadScene("Title");
     }
 
     enum SceneType
