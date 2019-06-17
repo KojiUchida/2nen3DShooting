@@ -394,7 +394,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 361176590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0722d41e1ea2ada4cb57967432e6d6eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d74ff3c9e136174386828af98593186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 2878587715150794118, guid: 8627b0c8c842e0f45b90d761f1e34eab, type: 3}
@@ -412,10 +412,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 361176590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b422a1f6990499f4cae4c13b839c566a, type: 3}
+  m_Script: {fileID: 11500000, guid: 48d71ff22c2e5734dbe936923683be1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 10
   player: {fileID: 796018860}
 --- !u!114 &361176598
 MonoBehaviour:
@@ -426,10 +426,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 361176590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0b372737cbd5e45b1610de5e4a5102, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e139d87709c23c45b2ff74380393064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1
+  hp: 100
   invincibleTime: 3
 --- !u!1 &534669902
 GameObject:
