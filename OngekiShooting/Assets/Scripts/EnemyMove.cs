@@ -25,6 +25,7 @@ public class EnemyMove : MonoBehaviour
 
     void Move()
     {
+        if (playerRig == null) return;
         rigidbody.position += new Vector3(playerRig.position.x - rigidbody.position.x, 0,-10) *  Time.deltaTime;
     }
 

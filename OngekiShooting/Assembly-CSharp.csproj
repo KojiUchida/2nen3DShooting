@@ -60,7 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\EnemyManager.cs" />
+    <Compile Include="Assets\Scripts\DeadBullet.cs" />
     <Compile Include="Assets\Scripts\EnemyBullet.cs" />
     <Compile Include="Assets\Scripts\EnemyHP.cs" />
     <Compile Include="Assets\Scripts\EnemyMove.cs" />
