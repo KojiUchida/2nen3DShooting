@@ -45,4 +45,21 @@ public class EnemyHP : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "PlayerBullet" || other.tag == "Player")
+        {
+            if (invincibleTime <= countTime)
+            {
+                hp -= 1;
+                Debug.Log("いたい");
+                countTime = 0;
+            }
+            else
+            {
+                Debug.Log("むてきだお");
+            }
+        }
+    }
 }

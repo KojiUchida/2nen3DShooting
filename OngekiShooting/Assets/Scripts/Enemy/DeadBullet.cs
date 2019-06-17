@@ -24,6 +24,14 @@ public class DeadBullet : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     private void OnBecameInvisible()
     {
         Destroy(this.gameObject);
