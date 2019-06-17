@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Kabe
   - DeadBullet
+  - Barrier
   layers:
   - Default
   - TransparentFX
