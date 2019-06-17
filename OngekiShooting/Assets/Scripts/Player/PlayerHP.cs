@@ -39,4 +39,16 @@ public class PlayerHP : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag== "EnemyBullet")
+        {
+            if (invincibleTime <= countTime)
+            {
+                hp -= 1;
+                countTime = 0;
+            }
+        }
+    }
 }

@@ -24,6 +24,14 @@ public class PlayerBullet : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy" || other.tag == "PlayerBullet" || other.tag == "EnemyBullet")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     private void OnBecameInvisible()
     {
         Destroy(this.gameObject);
