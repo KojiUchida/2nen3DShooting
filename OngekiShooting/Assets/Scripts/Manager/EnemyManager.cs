@@ -7,7 +7,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField, Header("読み込むCSVファイル名")]
     string fileName;
     [SerializeField, Header("出現する敵のプレファブ")]
-    Enemy[] spawnEnemies;
+    AI[] spawnEnemies;
     [SerializeField, Header("出現時の高さ")]
     float y = 2f;
 
@@ -34,7 +34,7 @@ public class EnemyManager : MonoBehaviour
         var dataList = spawnDatas.FindAll(data => data.spawnTiming <= timeElapsed);
         foreach (var data in dataList)
         {
-            Enemy enemy = spawnEnemies[(int)data.enemyType];
+            AI enemy = spawnEnemies[(int)data.enemyType];
 
             enemy.SetMove(data.moveType);
 

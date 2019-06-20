@@ -4,36 +4,19 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.tag == "Enemy" || collision.transform.tag == "PlayerBullet" || collision.transform.tag == "EnemyBullet")
-        {
-            Destroy(this.gameObject);
-        }
-    }
+    [SerializeField, Header("攻撃力")]
+    public int damage = 1;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy" || other.tag == "PlayerBullet" || other.tag == "EnemyBullet")
-        {
-            Destroy(this.gameObject);
-        }
+        if (other.tag == "Player") return;
+        if (other.tag == "PlayerBullet") return;
+        if (other.tag == "EnemyBullet") return;
+        Destroy(gameObject);
     }
 
     private void OnBecameInvisible()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

@@ -2,34 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrackingAI : MonoBehaviour
+public class TrackingAI : AI
 {
-    Rigidbody rigidbody;
     public GameObject player;
+
+    private Rigidbody rigid;
     private Rigidbody playerRigid;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Init()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        base.Init();
+        rigid = GetComponent<Rigidbody>();
         playerRigid = player.GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Death()
     {
-        Move();
-    }
-
-    void Move()
-    {
-        if (playerRigid == null) return;
-        //rigidbody.position += new Vector3(playerRigid.position.x - rigidbody.position.x, 0, playerRigid.position.z - rigidbody.position.z) * Time.deltaTime;
-        rigidbody.position += new Vector3(playerRigid.position.x - rigidbody.position.x, 0, -10) * Time.deltaTime;
+        Destroy(gameObject);
     }
 
     private void OnBecameInvisible()
     {
-        Destroy(this.gameObject);
+        Death();
     }
 }
