@@ -13,14 +13,14 @@ public class PlayerMove : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         barrierFlag = true;
-        barrier = transform.Find("Barrier").gameObject;
+        //barrier = transform.Find("Barrier").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
         rigidbody.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * speed, 0, 0);
-        Barrier();
+        //Barrier();
         if(Input.GetKeyDown(KeyCode.X))
         {
             if (barrierFlag) barrierFlag = false;

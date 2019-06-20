@@ -4,36 +4,37 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
+    [SerializeField, Header("移動速度")]
+    public float moveSpeed = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Move();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void Move()
     {
-        if (collision.transform.tag == "Player" || collision.transform.tag == "PlayerBullet" || collision.transform.tag == "EnemyBullet")
-        {
-            Destroy(this.gameObject);
-        }
+        Vector3 velocity = new Vector3(0, 0, -moveSpeed);
+        transform.position += velocity;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" || other.tag == "PlayerBullet" || other.tag == "EnemyBullet")
-        {
-            Destroy(this.gameObject);
-        }
+        if (other.tag == "PlayerBullet") return;
+        if (other.tag == "EnemyBullet") return;
+        if (other.tag == "Enemy") return;
+        Destroy(gameObject);
     }
 
     private void OnBecameInvisible()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

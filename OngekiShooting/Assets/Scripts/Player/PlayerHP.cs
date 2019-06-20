@@ -30,7 +30,7 @@ public class PlayerHP : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "EnemyBullet" || collision.transform.tag == "Enemy") 
+        if (collision.transform.tag == "EnemyBullet" || collision.transform.tag == "Enemy")
         {
             if (invincibleTime <= countTime)
             {
@@ -42,7 +42,7 @@ public class PlayerHP : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag== "EnemyBullet")
+        if (other.tag == "EnemyBullet")
         {
             if (invincibleTime <= countTime)
             {
@@ -50,5 +50,10 @@ public class PlayerHP : MonoBehaviour
                 countTime = 0;
             }
         }
+    }
+
+    public void Damage(int damage)
+    {
+        hp -= damage;
     }
 }
