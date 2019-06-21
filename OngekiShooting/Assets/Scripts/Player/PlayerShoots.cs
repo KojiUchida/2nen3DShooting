@@ -7,9 +7,9 @@ public class PlayerShoots : MonoBehaviour
     // Start is called before the first frame update
     public GameObject bullet;
     public Transform muzzle;
-    public float speed = 100;
     public float shootsTime = 0.2f;
     private float time;
+
     void Start()
     {
         time = 0;
@@ -24,17 +24,10 @@ public class PlayerShoots : MonoBehaviour
 
     void Shoots()
     {
-        if (Input.GetKey(KeyCode.Z))
-        {
-            if (time >= shootsTime)
-            {
-                GameObject bullets = Instantiate(bullet) as GameObject;
-                Vector3 force;
-                force = this.gameObject.transform.forward * speed;
-                bullets.GetComponent<Rigidbody>().AddForce(force);
-                bullets.transform.position = muzzle.position;
-                time = 0;
-            }
-        }
+        if (!Input.GetKey(KeyCode.Z)) return;
+        if (time < shootsTime) return;
+
+        Instantiate(bullet, muzzle.position, Quaternion.identity);
+        time = 0;
     }
 }

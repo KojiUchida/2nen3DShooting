@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedflectAI : AI
+public class ReflectAI : AI
 {
     [SerializeField, Header("弾のプレファブ")]
-    protected GameObject enemyBullet;
+    private GameObject enemyBullet;
     [SerializeField, Header("弾の間隔")]
     private float shotInterval = 0.5f;
 
@@ -39,6 +39,7 @@ public class RedflectAI : AI
     {
         if (other.tag != "PlayerBullet") return;
         var bullet = other.GetComponent<PlayerBullet>();
-        //other.gameObject
+        bullet.SetSpeed(-bullet.GetSpeed());
+        bullet.gameObject.tag = "EnemyBullet";
     }
 }
