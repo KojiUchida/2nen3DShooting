@@ -8,19 +8,19 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody rigidbody;
     public float speed = 5;
     public GameObject barrier;
-    public bool barrierFlag;//バリア状態かどうか
+    public static bool barrierFlag;//バリア状態かどうか
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        barrierFlag = true;
-        //barrier = transform.Find("Barrier").gameObject;
+        barrierFlag = false;
+        barrier = transform.Find("Barrier").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
         rigidbody.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * speed, 0, 0);
-        //Barrier();
+        Barrier();
         if(Input.GetKeyDown(KeyCode.X))
         {
             if (barrierFlag) barrierFlag = false;
@@ -37,5 +37,11 @@ public class PlayerMove : MonoBehaviour
             case false:
                 barrier.SetActive(false);break;
         }
+
+        if(barrierFlag)
+        {
+            barrier.gameObject.SetActive(true);
+        }
+        else barrier.gameObject.SetActive(false);
     }
 }
