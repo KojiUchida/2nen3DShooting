@@ -2,18 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     [SerializeField, Header("攻撃力")]
-    public int damage = 1;
+    protected int damage = 1;
     [SerializeField, Header("弾の速度")]
-    public float speed = 100;
-
-    private void Start()
-    {
-
-    }
-
+    protected float speed = 100;
 
     private void FixedUpdate()
     {
@@ -22,10 +16,12 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "PlayerBullet") return;
-        if (other.tag == "EnemyBullet") return;
-        if (other.tag == "ReflectEnemy") return;
-        Destroy(gameObject);
+        DestroyBullet(other);
+    }
+
+    public virtual void DestroyBullet(Collider other)
+    {
+
     }
 
     private void OnBecameInvisible()
@@ -33,12 +29,14 @@ public class PlayerBullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Move()
+    public virtual void Move()
     {
-        Vector3 velocity = new Vector3(0, 0, speed);
-        transform.position += velocity * Time.deltaTime;
+
     }
 
     public float GetSpeed() { return speed; }
     public void SetSpeed(float speed) { this.speed = speed; }
+
+    public int GetDamage() { return damage; }
+    public void SetDamage(int damage) { this.damage = damage; }
 }

@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         barrierFlag = false;
-        barrier = transform.Find("Barrier").gameObject;
+        //barrier = transform.Find("Barrier").gameObject;
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
     {
         rigidbody.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * speed, 0, 0);
         Barrier();
-        if(Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             if (barrierFlag) barrierFlag = false;
             else barrierFlag = true;
@@ -30,15 +30,16 @@ public class PlayerMove : MonoBehaviour
 
     void Barrier()
     {
-        switch(barrierFlag)
+        if (barrier == null) return;
+        switch (barrierFlag)
         {
             case true:
-                barrier.SetActive(true);break;
+                barrier.SetActive(true); break;
             case false:
-                barrier.SetActive(false);break;
+                barrier.SetActive(false); break;
         }
 
-        if(barrierFlag)
+        if (barrierFlag)
         {
             barrier.gameObject.SetActive(true);
         }
