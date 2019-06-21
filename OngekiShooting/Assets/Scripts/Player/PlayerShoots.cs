@@ -24,6 +24,7 @@ public class PlayerShoots : MonoBehaviour
 
     void Shoots()
     {
+        if (PlayerMove.barrierFlag) return;
         if (!Input.GetKey(KeyCode.Z)) return;
         if (time < shootsTime) return;
 
