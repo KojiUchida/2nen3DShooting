@@ -38,7 +38,7 @@ public class AI : MonoBehaviour
     public virtual void Attack()
     {
 
-    }    
+    }
 
     public virtual void Death()
     {
@@ -57,7 +57,7 @@ public class AI : MonoBehaviour
     {
         if (other.tag != "PlayerBullet") return;
         var bullet = other.GetComponent<PlayerBullet>();
-        hp -= bullet.damage;
+        hp -= bullet.GetDamage();
     }
 
     public void Damage(int damage)
