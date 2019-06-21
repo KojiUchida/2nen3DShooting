@@ -24,16 +24,19 @@ public class PlayerShoots : MonoBehaviour
 
     void Shoots()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (!PlayerMove.barrierFlag)
         {
-            if (time >= shootsTime)
+            if (Input.GetKey(KeyCode.Z))
             {
-                GameObject bullets = Instantiate(bullet) as GameObject;
-                Vector3 force;
-                force = this.gameObject.transform.forward * speed;
-                bullets.GetComponent<Rigidbody>().AddForce(force);
-                bullets.transform.position = muzzle.position;
-                time = 0;
+                if (time >= shootsTime)
+                {
+                    GameObject bullets = Instantiate(bullet) as GameObject;
+                    Vector3 force;
+                    force = this.gameObject.transform.forward * speed;
+                    bullets.GetComponent<Rigidbody>().AddForce(force);
+                    bullets.transform.position = muzzle.position;
+                    time = 0;
+                }
             }
         }
     }

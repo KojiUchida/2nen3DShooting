@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14503accc1758aa48a88d7a7417957c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 10
   player: {fileID: 796018860}
 --- !u!54 &229365135
 Rigidbody:
@@ -581,6 +582,7 @@ GameObject:
   - component: {fileID: 431620380}
   - component: {fileID: 431620379}
   - component: {fileID: 431620378}
+  - component: {fileID: 431620377}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Barrier
@@ -595,13 +597,25 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431620375}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1.5, y: 1.5, z: 0.25}
   m_Children: []
   m_Father: {fileID: 796018865}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &431620377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431620375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc0f345ddc6ef346acab0ef1ed62e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &431620378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -886,7 +900,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   barrier: {fileID: 431620375}
-  barrierFlag: 0
 --- !u!114 &796018868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1092,7 +1105,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930998607}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
