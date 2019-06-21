@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        barrierFlag = true;
+        barrierFlag = false;
         barrier = transform.Find("Barrier").gameObject;
     }
 
