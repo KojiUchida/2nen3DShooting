@@ -56,7 +56,7 @@ public class AI : MonoBehaviour
     private void HitPlayerBullet(Collider other)
     {
         if (other.tag != "PlayerBullet") return;
-        var bullet = other.GetComponent<PlayerBullet>();
+        var bullet = other.GetComponent<Bullet>();
         hp -= bullet.GetDamage();
     }
 

@@ -4,24 +4,18 @@ using UnityEngine;
 
 public class Barrier : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        ReflectBullet(other);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ReflectBullet(Collider other)
     {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.transform.tag=="DeadBullet")
-        {
-            PlayerMove.barrierFlag = false;
-            gameObject.SetActive(false);
-        }
+        bool reflectObj = other.tag == "EnemyBullet" || other.tag == "DeadBullet";
+        if (!reflectObj) return;
+        var bullet = other.GetComponent<Bullet>();
+        bullet.SetSpeed(-bullet.GetSpeed());
+        bullet.gameObject.tag = "PlayerBullet";
+        bullet.isReflect = true;
     }
 }
