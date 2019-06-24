@@ -28,4 +28,6 @@ public class EnemyMovement : MonoBehaviour
     {
 
     }
+
+    public void SetSpeed(float speed) { moveSpeed = speed; }
 }
