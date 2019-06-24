@@ -15,7 +15,7 @@ public class Barrier : MonoBehaviour
         if (!reflectObj) return;
         var bullet = other.GetComponent<Bullet>();
         bullet.SetSpeed(-bullet.GetSpeed());
-        bullet.gameObject.tag = "PlayerBullet";
+        bullet.gameObject.tag = "ReflectBullet";
         bullet.isReflect = true;
     }
 }

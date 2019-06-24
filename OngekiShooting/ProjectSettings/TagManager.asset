@@ -11,6 +11,8 @@ TagManager:
   - DeadBullet
   - Barrier
   - ReflectEnemy
+  - ReflectBullet
+  - EnemyReflectBullet
   layers:
   - Default
   - TransparentFX

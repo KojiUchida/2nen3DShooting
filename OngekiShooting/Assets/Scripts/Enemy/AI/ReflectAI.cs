@@ -30,9 +30,10 @@ public class ReflectAI : AI
         Instantiate(enemyBullet, transform.position, Quaternion.identity);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void HitPlayerBullet(Collider other)
     {
         ReflectBullet(other);
+        base.HitPlayerBullet(other);
     }
 
     private void ReflectBullet(Collider other)
@@ -40,7 +41,7 @@ public class ReflectAI : AI
         if (other.tag != "PlayerBullet") return;
         var bullet = other.GetComponent<PlayerBullet>();
         bullet.SetSpeed(-bullet.GetSpeed());
-        bullet.gameObject.tag = "EnemyBullet";
+        bullet.gameObject.tag = "EnemyReflectBullet";
         bullet.isReflect = true;
     }
 }
