@@ -187,7 +187,7 @@ PrefabInstance:
     - target: {fileID: 1505494554205524775, guid: d1941cd102739ae428eec4379baee540,
         type: 3}
       propertyPath: shotInterval
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1941cd102739ae428eec4379baee540, type: 3}
