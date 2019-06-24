@@ -53,9 +53,9 @@ public class AI : MonoBehaviour
         HitPlayerBullet(other);
     }
 
-    private void HitPlayerBullet(Collider other)
+    public virtual void HitPlayerBullet(Collider other)
     {
-        if (other.tag != "PlayerBullet") return;
+        if (!DamageObj(other)) return;
         var bullet = other.GetComponent<Bullet>();
         hp -= bullet.GetDamage();
     }
@@ -63,5 +63,10 @@ public class AI : MonoBehaviour
     public void Damage(int damage)
     {
         hp -= damage;
+    }
+
+    public bool DamageObj(Collider other)
+    {
+        return other.tag == "PlayerBullet" || other.tag == "ReflectBullet";
     }
 }

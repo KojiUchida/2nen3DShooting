@@ -37,7 +37,7 @@ public class Barrier : MonoBehaviour
         barrierCountTime = 0;
         var bullet = other.GetComponent<Bullet>();
         bullet.SetSpeed(-bullet.GetSpeed());
-        bullet.gameObject.tag = "PlayerBullet";
+        bullet.gameObject.tag = "ReflectBullet";
         bullet.isReflect = true;
     }
 }

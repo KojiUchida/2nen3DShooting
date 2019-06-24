@@ -18,7 +18,7 @@ public class PlayerBullet : Bullet
 
     bool DeadObj(Collider other)
     {
-        if (isReflect) return other.tag == "Player";
-        return other.tag == "Enemy";
+        if (isReflect) return other.tag == "Player"|| other.tag == "ReflectBullet";
+        return other.tag == "Enemy" || other.tag == "EnemyBullet";
     }
 }
