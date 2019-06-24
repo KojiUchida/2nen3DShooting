@@ -7,7 +7,9 @@ public class EnemyManager : MonoBehaviour
     [SerializeField, Header("読み込むCSVファイル名")]
     string fileName;
     [SerializeField, Header("出現する敵のプレファブ")]
-    AI[] spawnEnemies;
+    GameObject[] spawnEnemies;
+    [SerializeField, Header("敵移動")]
+    EnemyMovement[] enemyMovements;
     [SerializeField, Header("出現時の高さ")]
     float y = 2f;
 
@@ -34,11 +36,23 @@ public class EnemyManager : MonoBehaviour
         var dataList = spawnDatas.FindAll(data => data.spawnTiming <= timeElapsed);
         foreach (var data in dataList)
         {
-            AI enemy = spawnEnemies[(int)data.enemyType];
+            var enemy = spawnEnemies[(int)data.enemyType];
 
-            enemy.SetMove(data.moveType);
+            var obj = Instantiate(enemy, data.position, Quaternion.identity);
+            var move = SetMove(data);
+            move.SetSpeed(data.speed);
+            obj.AddComponent(move.GetType());
+        }
+        spawnDatas.RemoveAll(data => data.spawnTiming <= timeElapsed);
+    }
 
-            Instantiate(enemy, data.position, Quaternion.identity);
+    EnemyMovement SetMove(EnemySpawnData data)
+    {
+        switch ((int)data.moveType)
+        {
+            case 1: return new DefaultMove();
+            case 2: return new SuicideMove();
+            default: return null;
         }
     }
 }

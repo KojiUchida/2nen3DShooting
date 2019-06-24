@@ -5,9 +5,14 @@ using UnityEngine;
 public class SuicideMove : EnemyMovement
 {
     [SerializeField, Header("x位置調整速度")]
-    float adjustSpeed = 1.0f;
-    [SerializeField, Header("プレイヤー")]
+    float adjustSpeed = 0.01f;
+
     Transform player;
+
+    public override void Init()
+    {
+        player = FindObjectOfType<PlayerMove>().transform;
+    }
 
     public override void Move()
     {

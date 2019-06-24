@@ -10,7 +10,7 @@ public static class CSVReader
     {
         List<EnemySpawnData> data = new List<EnemySpawnData>();
 
-        string filePath = Application.streamingAssetsPath + fileName + ".csv";
+        string filePath = Application.streamingAssetsPath+"/" + fileName + ".csv";
         using (StreamReader sr = new StreamReader(File.Open(filePath, FileMode.Open)))
         {
             while (!sr.EndOfStream)
@@ -22,10 +22,11 @@ public static class CSVReader
                 float spawntiming = float.Parse(values[0]);
                 float x = float.Parse(values[1]);
                 float z = float.Parse(values[2]);
-                EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), values[3]);
-                MoveType moveType = (MoveType)Enum.Parse(typeof(MoveType), values[4]);
+                float speed = float.Parse(values[3]);
+                EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), values[4]);
+                MoveType moveType = (MoveType)Enum.Parse(typeof(MoveType), values[5]);
 
-                data.Add(new EnemySpawnData(spawntiming, new Vector3(x, y, z), enemyType, moveType));
+                data.Add(new EnemySpawnData(spawntiming, new Vector3(x, y, z), speed, enemyType, moveType));
             }
         }
         return data;
