@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         barrierFlag = false;
-        //barrier = transform.Find("Barrier").gameObject;
+        barrier = GetComponentInChildren<Barrier>().gameObject;
     }
 
     // Update is called once per frame

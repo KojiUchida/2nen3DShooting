@@ -12,9 +12,13 @@ public class EnemyBullet : Bullet
 
     public override void DestroyBullet(Collider other)
     {
-        if (other.tag == "PlayerBullet") return;
-        if (other.tag == "EnemyBullet") return;
-        if (other.tag == "Enemy") return;
+        if (!DeadObj(other)) return;
         Destroy(gameObject);
+    }
+
+    bool DeadObj(Collider other)
+    {
+        if (isReflect) return other.tag == "Enemy" || other.tag == "ReflectEnemy";
+        return other.tag == "Player";
     }
 }

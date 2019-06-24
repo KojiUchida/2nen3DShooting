@@ -41,5 +41,6 @@ public class ReflectAI : AI
         var bullet = other.GetComponent<PlayerBullet>();
         bullet.SetSpeed(-bullet.GetSpeed());
         bullet.gameObject.tag = "EnemyBullet";
+        bullet.isReflect = true;
     }
 }
