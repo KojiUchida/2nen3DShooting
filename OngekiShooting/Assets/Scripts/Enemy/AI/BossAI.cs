@@ -10,7 +10,8 @@ public class BossAI : MonoBehaviour
     public float speed = 5;
     Rigidbody rigidbody;
     public GameObject player;
-    public GameObject enemyBullet;
+    public GameObject bulletPrefab;
+    private Bullet bullet;
     private int attackBehaviour;//行動番号
     private int hpBehaviour;//体力で行動変化
     public float attackTime1 = 3;
@@ -19,8 +20,16 @@ public class BossAI : MonoBehaviour
     public int hp;
     public float rightBulletPos = 10;
     public float leftBulletPos = 10;
-
+    private bool right;//右に移動しているかどうか
     private float countTime;
+
+    public GameObject enemy1;
+    public GameObject enemy2;
+
+    public GameObject bossBullet;
+    public Transform muzzle;
+    public float shootsTime = 0.2f;
+    private float time;
 
     void Start()
     {
@@ -31,18 +40,22 @@ public class BossAI : MonoBehaviour
         hpBehaviour = 0;
         countTime = 0;
         hp = maxHp;
+        bullet = bulletPrefab.GetComponent<Bullet>();
+        bullet.SetSpeed(200);
+        right = false;
+        time = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Shoots();
         Dead();
         switch(attackBehaviour)
         {
-            case 1:Attack1();break;
-            case 2:Attack2();break;
-            case 3:Attack3();break;
+            case 0:Attack1();break;
+            case 1:Attack2();break;
+            case 2:Attack3();break;
         }
         switch(hpBehaviour)
         {
@@ -51,6 +64,7 @@ public class BossAI : MonoBehaviour
             case 2: Move3(); break;
         }
         countTime += Time.deltaTime;
+        time += Time.deltaTime;
 
         if (hp <= maxHp / 3) 
         {
@@ -66,28 +80,44 @@ public class BossAI : MonoBehaviour
 
     void Move1()
     {
-        rigidbody.velocity += new Vector3(player.transform.position.x - rigidbody.position.x, 0, 0) * speed * Time.deltaTime;
+        rigidbody.velocity = new Vector3(player.transform.position.x - rigidbody.position.x, 0, 0) * speed * Time.deltaTime;
     }
 
     void Move2()
     {
-        rigidbody.velocity += new Vector3(0 - rigidbody.position.x, 0, 0) * speed * Time.deltaTime;
+        rigidbody.velocity = new Vector3(0 - rigidbody.position.x, 0, 0) * speed * Time.deltaTime;
     }
 
     void Move3()
     {
-        rigidbody.velocity += new Vector3(0 - rigidbody.position.x, 0, 0) * speed * Time.deltaTime;
-        //x+Screen.width/2右端
-        //x-Screen.width/2左端
+        if(right)
+        {
+            rigidbody.velocity = new Vector3(1, 0, (20 - rigidbody.position.z)*0.11f) * speed * Time.deltaTime;
+        }
+        else
+        {
+            rigidbody.velocity = new Vector3(-1, 0, (20 - rigidbody.position.z) * 0.11f) * speed * Time.deltaTime;
+        }
+
+        //画面の端にきているかどうか
+        if (rigidbody.position.x >= 5) 
+        {
+            right = false;
+        }
+        if (rigidbody.position.x <=  -5) 
+        {
+            right = true;
+        }
     }
 
     void Attack1()
     {
         if (attackTime1 <= countTime)
         {
-            Instantiate(enemyBullet, transform.position + new Vector3(rightBulletPos, 0), Quaternion.identity);
-            Instantiate(enemyBullet, transform.position, Quaternion.identity);
-            Instantiate(enemyBullet, transform.position - new Vector3(leftBulletPos, 0), Quaternion.identity);
+
+            Instantiate(bulletPrefab, transform.position + new Vector3(rightBulletPos, 0), Quaternion.identity);
+            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Instantiate(bulletPrefab, transform.position - new Vector3(leftBulletPos, 0), Quaternion.identity);
             countTime = 0;
         }
     }
@@ -97,6 +127,9 @@ public class BossAI : MonoBehaviour
         if(attackTime2<=countTime)
         {
             countTime = 0;
+            if (enemy1 == null || enemy2 == null) return;
+            Instantiate(enemy1, transform.position + new Vector3(6, 0), Quaternion.identity);
+            Instantiate(enemy2, transform.position + new Vector3(-6, 0), Quaternion.identity);
         }
     }
 
@@ -115,9 +148,36 @@ public class BossAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="PlayerBullet")
+        if(attackBehaviour==2)
         {
-            hp--;
+            ReflectBullet(other);
+            if (other.tag == "ReflectBullet")
+            {
+                hp--;
+            }
         }
+        else
+        {
+            if (other.tag == "PlayerBullet")
+            {
+                hp--;
+            }
+        }
+    }
+
+    private void ReflectBullet(Collider other)
+    {
+        if (other.tag != "PlayerBullet") return;
+        var bullet = other.GetComponent<PlayerBullet>();
+        bullet.SetSpeed(-bullet.GetSpeed());
+        bullet.gameObject.tag = "EnemyReflectBullet";
+        bullet.isReflect = true;
+    }
+
+    void Shoots()
+    {
+        if (time < shootsTime) return;
+        Instantiate(bossBullet, muzzle.position, Quaternion.identity);
+        time = 0;
     }
 }
