@@ -10,12 +10,15 @@ public class BossAI : MonoBehaviour
     public float speed = 5;
     Rigidbody rigidbody;
     public GameObject player;
+    public GameObject enemyBullet;
     private int attackBehaviour;//行動番号
     private int hpBehaviour;//体力で行動変化
     public float attackTime1 = 3;
     public float attackTime2 = 5;
     public int maxHp = 100;
     public int hp;
+    public float rightBulletPos = 10;
+    public float leftBulletPos = 10;
 
     private float countTime;
 
@@ -74,16 +77,27 @@ public class BossAI : MonoBehaviour
     void Move3()
     {
         rigidbody.velocity += new Vector3(0 - rigidbody.position.x, 0, 0) * speed * Time.deltaTime;
+        //x+Screen.width/2右端
+        //x-Screen.width/2左端
     }
 
     void Attack1()
-    { 
-
+    {
+        if (attackTime1 <= countTime)
+        {
+            Instantiate(enemyBullet, transform.position + new Vector3(rightBulletPos, 0), Quaternion.identity);
+            Instantiate(enemyBullet, transform.position, Quaternion.identity);
+            Instantiate(enemyBullet, transform.position - new Vector3(leftBulletPos, 0), Quaternion.identity);
+            countTime = 0;
+        }
     }
 
     void Attack2()
     {
-
+        if(attackTime2<=countTime)
+        {
+            countTime = 0;
+        }
     }
 
     void Attack3()
