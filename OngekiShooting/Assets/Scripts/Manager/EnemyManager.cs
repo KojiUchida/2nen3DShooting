@@ -8,8 +8,6 @@ public class EnemyManager : MonoBehaviour
     string fileName;
     [SerializeField, Header("出現する敵のプレファブ")]
     GameObject[] spawnEnemies;
-    [SerializeField, Header("敵移動")]
-    EnemyMovement[] enemyMovements;
     [SerializeField, Header("出現時の高さ")]
     float y = 2f;
 
@@ -39,23 +37,23 @@ public class EnemyManager : MonoBehaviour
             var enemy = spawnEnemies[(int)data.enemyType];
 
             var obj = Instantiate(enemy, data.position, Quaternion.identity);
-            var move = SetMove(data);
-            if (move != null)
-            {
-                obj.AddComponent(move.GetType());
-                obj.GetComponent<EnemyMovement>().SetSpeed(data.speed);
-            }
+            var move = SetMove(data, obj);
+            Debug.Log(move);
+            move?.SetSpeed(data.speed);
         }
         spawnDatas.RemoveAll(data => data.spawnTiming <= timeElapsed);
     }
 
-    EnemyMovement SetMove(EnemySpawnData data)
+    EnemyMovement SetMove(EnemySpawnData data, GameObject obj)
     {
-        switch ((int)data.moveType)
+        switch (data.moveType)
         {
-            case 1: return new DefaultMove();
-            case 2: return new SuicideMove();
-            default: return null;
+            case MoveType.None: return null;
+            case MoveType.Default: return obj.AddComponent<DefaultMove>();
+            case MoveType.Sucide: return obj.AddComponent<SuicideMove>();
+            default: Debug.Assert(false, "not come here..."); return null;
         }
+
+
     }
 }
