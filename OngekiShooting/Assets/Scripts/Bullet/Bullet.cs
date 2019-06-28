@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Pause.isPause) return;
         Move();
     }
 

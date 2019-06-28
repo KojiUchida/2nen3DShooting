@@ -23,9 +23,6 @@ public class PauseManager : MonoBehaviour
 
     [SerializeField, Header("1秒間に何回入力を受け入れるか")]
     private float selectInterval = 1f;
-
-    [SerializeField, Header("ステージ選択画面")]
-    private string stageSelect;
     [SerializeField, Header("タイトル画面")]
     private string title;
 
@@ -84,8 +81,9 @@ public class PauseManager : MonoBehaviour
     public void PauseAndResume()
     {
         previousVertical = currentVertical;
-        //currentVertical = InputManager.GetMoveVertical();
+        currentVertical = Input.GetAxis("Vertical");
         Pausing();
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
 
         //ポーズ処理
         if (!pauseUI.activeSelf) PauseStart();
@@ -198,30 +196,18 @@ public class PauseManager : MonoBehaviour
     /// </summary>
     void PressButton()
     {
-        ////ボタン入力
-        //if (InputManager.Decision())
-        //{
-        //    buttons[currentButton].onClick.Invoke();
-        //    if (currentButton == 1 || currentButton == 2)
-        //    {
-        //        Pause.isPause = !Pause.isPause;
-        //        Time.timeScale = 1;
-        //    }
+        //ボタン入力
+        if (Input.GetKeyDown(KeyCode.KeypadEnter)) 
+        {
+            buttons[currentButton].onClick.Invoke();
+            if (currentButton == 1 || currentButton == 2)
+            {
+                Pause.isPause = !Pause.isPause;
+                Time.timeScale = 1;
+            }
 
-        //    PlayDesideSE();
-        //}
-        //if (InputManager.IsJump())
-        //    Resume();
-    }
-
-    /// <summary>
-    /// ステージ選択画面へ
-    /// </summary>
-    public void GoStageSelect()
-    {
-        if (stageSelect == null || sceneSystem == null) return;
-        //SceneManager.LoadScene(stageSelect.name);
-        sceneSystem.LoadScene(stageSelect);
+            PlayDesideSE();
+        }
     }
 
     /// <summary>
@@ -230,7 +216,6 @@ public class PauseManager : MonoBehaviour
     public void GoTitle()
     {
         if (title == null || sceneSystem == null) return;
-        //SceneManager.LoadScene(title.name);
         sceneSystem.LoadScene(title);
     }
 

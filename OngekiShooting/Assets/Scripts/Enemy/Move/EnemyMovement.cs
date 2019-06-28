@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Pause.isPause) return;
         Move();
     }
 
