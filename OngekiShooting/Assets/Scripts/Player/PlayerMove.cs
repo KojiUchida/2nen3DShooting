@@ -25,6 +25,14 @@ public class PlayerMove : MonoBehaviour
     {
         if (Pause.isPause) return;
         rigidbody.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * speed, 0, 0);
+        if(rigidbody.position.x>5)
+        {
+            rigidbody.position = new Vector3(5f, 0);
+        }
+        if(rigidbody.position.x<-5)
+        {
+            rigidbody.position = new Vector3(-5f, 0);
+        }
         BarrierMode();
         if (Input.GetKeyDown(KeyCode.X))
         {
