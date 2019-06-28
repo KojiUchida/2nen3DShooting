@@ -10,48 +10,100 @@ public class BossAI : MonoBehaviour
     public float speed = 5;
     Rigidbody rigidbody;
     public GameObject player;
-    private int behaviour;//行動番号
-    public int coolTime = 3;
+    private int attackBehaviour;//行動番号
+    private int hpBehaviour;//体力で行動変化
+    public float attackTime1 = 3;
+    public float attackTime2 = 5;
+    public int maxHp = 100;
+    public int hp;
+
     private float countTime;
 
     void Start()
     {
         bossShootFlag = false;
         rigidbody = GetComponent<Rigidbody>();
-        behaviour = 0;
+        player = FindObjectOfType<PlayerMove>().gameObject;
+        attackBehaviour = 0;
+        hpBehaviour = 0;
         countTime = 0;
+        hp = maxHp;
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch(behaviour)
+
+        Dead();
+        switch(attackBehaviour)
         {
-            case 0:Move();break;
-            case 1:Attack(); break;
-            case 2:break;
-            case 3:break;
-            case 4:break;
+            case 1:Attack1();break;
+            case 2:Attack2();break;
+            case 3:Attack3();break;
+        }
+        switch(hpBehaviour)
+        {
+            case 0: Move1(); break;
+            case 1: Move2(); break;
+            case 2: Move3(); break;
         }
         countTime += Time.deltaTime;
-        if (behaviour > 4) 
+
+        if (hp <= maxHp / 3) 
         {
-            behaviour = 0;
+            attackBehaviour = 2;
+            hpBehaviour = 2;
+        }
+        else if (hp <= (maxHp / 3) * 2) 
+        {
+            attackBehaviour = 1;
+            hpBehaviour = 1;
         }
     }
 
-    void Move()
+    void Move1()
     {
-        behaviour++;
+        rigidbody.velocity += new Vector3(player.transform.position.x - rigidbody.position.x, 0, 0) * speed * Time.deltaTime;
     }
 
-    void Attack()
+    void Move2()
     {
-        bossShootFlag = true;
-        if (coolTime < countTime)
+        rigidbody.velocity += new Vector3(0 - rigidbody.position.x, 0, 0) * speed * Time.deltaTime;
+    }
+
+    void Move3()
+    {
+        rigidbody.velocity += new Vector3(0 - rigidbody.position.x, 0, 0) * speed * Time.deltaTime;
+    }
+
+    void Attack1()
+    { 
+
+    }
+
+    void Attack2()
+    {
+
+    }
+
+    void Attack3()
+    {
+
+    }
+
+    void Dead()
+    {
+        if(hp<=0)
         {
-            countTime = 0;
-            behaviour++;
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag=="PlayerBullet")
+        {
+            hp--;
         }
     }
 }
