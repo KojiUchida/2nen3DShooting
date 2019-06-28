@@ -23,6 +23,7 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Pause.isPause) return;
         rigidbody.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * speed, 0, 0);
         BarrierMode();
         if (Input.GetKeyDown(KeyCode.X))
