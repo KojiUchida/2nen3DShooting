@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc0f345ddc6ef346acab0ef1ed62e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  justGuardTime: 9999
+  justGuardTime: 1
 --- !u!65 &431620378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -977,16 +977,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d146df5ec8e37774fbb1aee789f3c2ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 300
   player: {fileID: 796018860}
-  enemyBullet: {fileID: 2878587715150794118, guid: 8627b0c8c842e0f45b90d761f1e34eab,
+  bulletPrefab: {fileID: 8935237196975321954, guid: 0feeb7c31256af6458b3eeeda10d80b5,
     type: 3}
   attackTime1: 3
   attackTime2: 5
   maxHp: 100
   hp: 0
-  rightBulletPos: 10
-  leftBulletPos: 10
+  rightBulletPos: 5
+  leftBulletPos: 5
+  enemy1: {fileID: 0}
+  enemy2: {fileID: 0}
+  bossBullet: {fileID: 2878587715150794118, guid: 8627b0c8c842e0f45b90d761f1e34eab,
+    type: 3}
+  muzzle: {fileID: 284571521}
+  shootsTime: 0.2
 --- !u!54 &925975837
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1001,7 +1007,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 124
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &925975838
 CapsuleCollider:
