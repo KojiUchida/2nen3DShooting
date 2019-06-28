@@ -6,15 +6,22 @@ public class Barrier : MonoBehaviour
 {
     public float justGuardTime = 1;//ジャストガードまでの時間
     public static float barrierCountTime;//ジャストガード用カウントタイム
+    public GameObject barrierArea;
 
     private void Start()
     {
         barrierCountTime = 0;
+        barrierArea = GetComponentInChildren<BarrierArea>().gameObject;
+        barrierArea.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         barrierCountTime += Time.deltaTime;
+        if (barrierCountTime >= 1.0f)
+        {
+            barrierArea.gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,6 +36,7 @@ public class Barrier : MonoBehaviour
         if (justGuardTime >= barrierCountTime)//ジャストガード成功
         {
             PlayerMove.barrierGauge = PlayerMove.maxBarrierGauge;//ゲージを最大に
+            barrierArea.gameObject.SetActive(true);
             PlayerMove.barrierFlag = false;
         }
         barrierCountTime = 0;
