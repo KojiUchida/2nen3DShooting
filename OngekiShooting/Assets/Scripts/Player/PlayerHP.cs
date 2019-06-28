@@ -28,28 +28,14 @@ public class PlayerHP : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.tag == "EnemyBullet" || collision.transform.tag == "Enemy")
-        {
-            if (invincibleTime <= countTime)
-            {
-                hp -= 1;
-                countTime = 0;
-            }
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "EnemyBullet")
-        {
-            if (invincibleTime <= countTime)
-            {
-                hp -= 1;
-                countTime = 0;
-            }
-        }
+        bool damageTag = other.tag == "EnemyBullet" || other.tag == "EnemyReflectBullet";
+        if (!damageTag) return;
+        if (invincibleTime > countTime) return;
+        var bullet = other.GetComponent<Bullet>();
+        hp -= bullet.GetDamage();
+        countTime = 0;
     }
 
     public void Damage(int damage)
