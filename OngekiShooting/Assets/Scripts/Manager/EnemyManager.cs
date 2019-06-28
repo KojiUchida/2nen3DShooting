@@ -40,8 +40,11 @@ public class EnemyManager : MonoBehaviour
 
             var obj = Instantiate(enemy, data.position, Quaternion.identity);
             var move = SetMove(data);
-            obj.AddComponent(move.GetType());
-            obj.GetComponent<EnemyMovement>().SetSpeed(data.speed);
+            if (move != null)
+            {
+                obj.AddComponent(move.GetType());
+                obj.GetComponent<EnemyMovement>().SetSpeed(data.speed);
+            }
         }
         spawnDatas.RemoveAll(data => data.spawnTiming <= timeElapsed);
     }
