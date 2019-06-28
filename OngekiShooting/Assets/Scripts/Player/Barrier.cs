@@ -15,7 +15,6 @@ public class Barrier : MonoBehaviour
     private void Update()
     {
         barrierCountTime += Time.deltaTime;
-        Debug.Log(barrierCountTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,8 +28,6 @@ public class Barrier : MonoBehaviour
         if (!reflectObj) return;
         if (justGuardTime >= barrierCountTime)//ジャストガード成功
         {
-            //内田よろ～
-            Debug.Log("ジャストバリア成功！！");
             PlayerMove.barrierGauge = PlayerMove.maxBarrierGauge;//ゲージを最大に
             PlayerMove.barrierFlag = false;
         }

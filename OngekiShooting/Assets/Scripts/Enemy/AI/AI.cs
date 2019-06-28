@@ -8,9 +8,6 @@ public class AI : MonoBehaviour
     protected int maxHP = 10;
     protected int hp;
 
-    EnemyManager enemyManager;
-    MoveType moveType;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +23,7 @@ public class AI : MonoBehaviour
 
     public virtual void Init()
     {
-        enemyManager = FindObjectOfType<EnemyManager>();
         hp = maxHP;
-    }
-
-    public void SetMove(MoveType moveType)
-    {
-        this.moveType = moveType;
     }
 
     public virtual void Attack()
