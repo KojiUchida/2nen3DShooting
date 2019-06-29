@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justGuardTime: 1
-  barrierArea: {fileID: 0}
+  barrierArea: {fileID: 1030787292}
 --- !u!65 &431620378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -859,7 +859,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cf9af3abe26d2ef4aaf97785ec23942f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
