@@ -20,7 +20,6 @@ public class PlayerHP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(isDamage);
         Death();
         Blink();
     }
