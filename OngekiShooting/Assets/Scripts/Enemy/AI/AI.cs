@@ -60,4 +60,9 @@ public class AI : MonoBehaviour
     {
         return other.tag == "PlayerBullet" || other.tag == "ReflectBullet";
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

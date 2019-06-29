@@ -5,14 +5,17 @@ using UnityEngine;
 public class PlayerHP : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int hp;//ヒットポイント
+    public int maxHP = 100;
     public float invincibleTime = 3;//無敵時間
 
+    [HideInInspector]
+    public int hp;//ヒットポイント
     private bool isDamage;
     Material mat;
 
     void Start()
     {
+        hp = maxHP;
         isDamage = false;
         mat = gameObject.GetComponent<MeshRenderer>().material;
     }
@@ -28,7 +31,7 @@ public class PlayerHP : MonoBehaviour
     {
         if (hp <= 0)
         {
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 
@@ -44,6 +47,7 @@ public class PlayerHP : MonoBehaviour
     public void Damage(int damage)
     {
         if (isDamage) return;
+        if (damage > hp) damage = hp;
         hp -= damage;
         StartCoroutine(DamageCoroutine());
     }
