@@ -15,7 +15,7 @@ public class SuicideAI : AI
     public override void Init()
     {
         base.Init();
-        player = FindObjectOfType<PlayerHP>().transform;
+        player = FindObjectOfType<PlayerHP>()?.transform;
     }
 
     public override void Attack()
@@ -38,6 +38,7 @@ public class SuicideAI : AI
     bool IsExplode()
     {
         if (player == null) return false;
+        if (!player.gameObject.activeSelf) return false;
         Vector3 vec = player.position - transform.position;
         bool isRange = vec.magnitude < explodeRange;
         bool isDead = hp <= 0;

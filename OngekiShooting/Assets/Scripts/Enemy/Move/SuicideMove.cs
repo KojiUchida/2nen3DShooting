@@ -11,7 +11,7 @@ public class SuicideMove : EnemyMovement
 
     public override void Init()
     {
-        player = FindObjectOfType<PlayerMove>().transform;
+        player = FindObjectOfType<PlayerMove>()?.transform;
     }
 
     public override void Move()
