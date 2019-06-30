@@ -897,7 +897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4790767624333903567, guid: d3e32766aee3eff408396fa6d432e7d4, type: 3}
   muzzle: {fileID: 1930998608}
-  shootsTime: 0.2
+  shootsTime: 0.3
 --- !u!114 &796018867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83511971cd956b44e96e7e9a911a5aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2147483647
+  hp: 100
   invincibleTime: 0
 --- !u!1001 &808408092
 PrefabInstance:

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1505494554205524772}
   - component: {fileID: 1505494554205524771}
   - component: {fileID: 1505494554205524775}
-  - component: {fileID: 1505494554205524824}
   m_Layer: 0
   m_Name: DeadShotEnemy
   m_TagString: Enemy
@@ -110,17 +109,4 @@ MonoBehaviour:
     type: 3}
   deadBullet: {fileID: 8935237196975321954, guid: 0feeb7c31256af6458b3eeeda10d80b5,
     type: 3}
-  shotInterval: 0.5
---- !u!114 &1505494554205524824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505494554205524770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71a8832ff32db0446b0d58a2ef441307, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0.3
+  shotInterval: 1
