@@ -54,6 +54,7 @@ public class Barrier : MonoBehaviour
             PlayerMove.barrierGauge = 0;//ゲージを0に
             barrierArea.gameObject.SetActive(true);
             PlayerMove.barrierFlag = false;
+            ses[3].Play();
         }
     }
 }

@@ -34,6 +34,7 @@ public class PlayerHP : MonoBehaviour
         if (hp <= 0)
         {
             ses[0].Play();
+            SceneState.isDead = true;
             gameObject.SetActive(false);
         }
     }

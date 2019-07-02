@@ -197,7 +197,7 @@ public class PauseManager : MonoBehaviour
     void PressButton()
     {
         //ボタン入力
-        if (Input.GetKeyDown(KeyCode.KeypadEnter)) 
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             buttons[currentButton].onClick.Invoke();
             if (currentButton == 1 || currentButton == 2)
@@ -217,6 +217,7 @@ public class PauseManager : MonoBehaviour
     {
         if (title == null || sceneSystem == null) return;
         sceneSystem.LoadScene(title);
+        Resume();
     }
 
     /// <summary>
