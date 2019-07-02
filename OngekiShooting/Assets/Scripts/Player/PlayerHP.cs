@@ -34,7 +34,7 @@ public class PlayerHP : MonoBehaviour
         if (hp <= 0)
         {
             ses[0].Play();
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 
