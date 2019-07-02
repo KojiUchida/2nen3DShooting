@@ -38,7 +38,7 @@ public class PlayerMove : MonoBehaviour
             //    countTime += Time.deltaTime;
             //}
 
-            if(maxBarrierGauge==barrierGauge)
+            if(maxBarrierGauge==barrierGauge && !barrierFlag)
             {
                 barrierFlag = true;
             }
