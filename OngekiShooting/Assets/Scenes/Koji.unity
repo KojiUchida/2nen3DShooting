@@ -851,6 +851,31 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3388571755924633997, guid: b16b8d9fee219414ab078095d7a22475,
+        type: 3}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388571755924633997, guid: b16b8d9fee219414ab078095d7a22475,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103059325938603676, guid: b16b8d9fee219414ab078095d7a22475,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449143496489763201, guid: b16b8d9fee219414ab078095d7a22475,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2221075629843034154, guid: b16b8d9fee219414ab078095d7a22475,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b16b8d9fee219414ab078095d7a22475, type: 3}
 --- !u!1 &909777279
