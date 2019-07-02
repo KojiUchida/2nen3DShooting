@@ -133,8 +133,8 @@ MonoBehaviour:
   hp: 0
   rightBulletPos: 5
   leftBulletPos: 5
-  enemy1: {fileID: 0}
-  enemy2: {fileID: 0}
+  enemy1: {fileID: 1505494554205524770, guid: 5117972119a5544498978a62c642223c, type: 3}
+  enemy2: {fileID: 1505494554205524770, guid: 5117972119a5544498978a62c642223c, type: 3}
   bossBullet: {fileID: 2878587715150794118, guid: 8627b0c8c842e0f45b90d761f1e34eab,
     type: 3}
   muzzle: {fileID: 2456754513636749946}
