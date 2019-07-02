@@ -20,7 +20,11 @@ public class Barrier : MonoBehaviour
     private void Update()
     {
         barrierCountTime += Time.deltaTime;
-        if (barrierCountTime >= 1.0f)
+        //if (barrierCountTime >= 1.0f)
+        //{
+        //    barrierArea.gameObject.SetActive(false);
+        //}
+        if (!PlayerMove.barrierFlag)
         {
             barrierArea.gameObject.SetActive(false);
         }
@@ -47,7 +51,7 @@ public class Barrier : MonoBehaviour
     {
         if (justGuardTime >= barrierCountTime)//ジャストガード成功
         {
-            PlayerMove.barrierGauge = PlayerMove.maxBarrierGauge;//ゲージを最大に
+            PlayerMove.barrierGauge = 0;//ゲージを0に
             barrierArea.gameObject.SetActive(true);
             PlayerMove.barrierFlag = false;
         }
