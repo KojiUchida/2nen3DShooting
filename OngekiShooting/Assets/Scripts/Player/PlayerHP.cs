@@ -41,7 +41,7 @@ public class PlayerHP : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        bool damageTag = other.tag == "EnemyBullet" || other.tag == "EnemyReflectBullet";
+        bool damageTag = other.tag == "EnemyBullet"|| other.tag == "DeadBullet" || other.tag == "EnemyReflectBullet";
         if (!damageTag) return;
         if (isDamage) return;
         var bullet = other.GetComponent<Bullet>();
