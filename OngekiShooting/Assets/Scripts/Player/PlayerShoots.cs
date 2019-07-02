@@ -31,7 +31,7 @@ public class PlayerShoots : MonoBehaviour
         if (time < shootsTime) return;
 
         Instantiate(bullet, muzzle.position, Quaternion.identity);
-        ses[1].Play();
+        //ses[1].Play();
         time = 0;
     }
 }

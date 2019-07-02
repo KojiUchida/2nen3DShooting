@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 300
   player: {fileID: 0}
-  bulletPrefab: {fileID: 8935237196975321954, guid: 0feeb7c31256af6458b3eeeda10d80b5,
+  bulletPrefab: {fileID: 8935237196975321954, guid: 2f28e280c373e33479b4d0f4789368d1,
     type: 3}
   attackTime1: 3
   attackTime2: 5
