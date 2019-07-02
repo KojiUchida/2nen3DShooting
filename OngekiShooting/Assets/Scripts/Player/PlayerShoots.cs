@@ -9,10 +9,12 @@ public class PlayerShoots : MonoBehaviour
     public Transform muzzle;
     public float shootsTime = 0.2f;
     private float time;
+    private AudioSource[] ses;
 
     void Start()
     {
         time = 0;
+        ses = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class PlayerShoots : MonoBehaviour
         if (time < shootsTime) return;
 
         Instantiate(bullet, muzzle.position, Quaternion.identity);
+        ses[1].Play();
         time = 0;
     }
 }

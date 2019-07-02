@@ -28,6 +28,7 @@ public class ReflectAI : AI
         if (count > 0) return;
         count = shotInterval;
         Instantiate(enemyBullet, transform.position, Quaternion.identity);
+        //PlaySE(ses[1]);
     }
 
     public override void HitPlayerBullet(Collider other)
@@ -43,5 +44,6 @@ public class ReflectAI : AI
         bullet.SetSpeed(-bullet.GetSpeed());
         bullet.gameObject.tag = "EnemyReflectBullet";
         bullet.isReflect = true;
+        ses[2].Play();
     }
 }

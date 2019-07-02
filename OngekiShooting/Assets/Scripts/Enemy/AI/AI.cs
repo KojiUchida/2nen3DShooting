@@ -8,6 +8,8 @@ public class AI : MonoBehaviour
     protected int maxHP = 10;
     protected int hp;
 
+    protected AudioSource[] ses;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class AI : MonoBehaviour
     public virtual void Init()
     {
         hp = maxHP;
+        ses = GetComponents<AudioSource>();
     }
 
     public virtual void Attack()
@@ -34,6 +37,7 @@ public class AI : MonoBehaviour
     public virtual void Death()
     {
         if (!IsDead()) return;
+        ses[0].Play();
         Destroy(gameObject);
     }
 
