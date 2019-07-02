@@ -12,12 +12,14 @@ public class PlayerHP : MonoBehaviour
     public int hp;//ヒットポイント
     private bool isDamage;
     Material mat;
+    private AudioSource[] ses;
 
     void Start()
     {
         hp = maxHP;
         isDamage = false;
         mat = gameObject.GetComponent<MeshRenderer>().material;
+        ses = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,7 +33,8 @@ public class PlayerHP : MonoBehaviour
     {
         if (hp <= 0)
         {
-            gameObject.SetActive(false);
+            ses[0].Play();
+            //gameObject.SetActive(false);
         }
     }
 

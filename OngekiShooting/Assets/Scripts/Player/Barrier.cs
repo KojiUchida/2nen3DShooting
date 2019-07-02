@@ -7,12 +7,14 @@ public class Barrier : MonoBehaviour
     public float justGuardTime = 1;//ジャストガードまでの時間
     public static float barrierCountTime;//ジャストガード用カウントタイム
     public GameObject barrierArea;
+    private AudioSource[] ses;
 
     private void Start()
     {
         barrierCountTime = 0;
         barrierArea = GetComponentInChildren<BarrierArea>().gameObject;
         barrierArea.gameObject.SetActive(false);
+        ses = GetComponentsInParent<AudioSource>();
     }
 
     private void Update()
@@ -33,16 +35,21 @@ public class Barrier : MonoBehaviour
     {
         bool reflectObj = other.tag == "EnemyBullet" || other.tag == "DeadBullet";
         if (!reflectObj) return;
+        JustGuard();
+        barrierCountTime = 0;
+        var bullet = other.GetComponent<Bullet>();
+        bullet.SetSpeed(-bullet.GetSpeed());
+        bullet.gameObject.tag = "ReflectBullet";
+        bullet.isReflect = true;
+    }
+
+    private void JustGuard()
+    {
         if (justGuardTime >= barrierCountTime)//ジャストガード成功
         {
             PlayerMove.barrierGauge = PlayerMove.maxBarrierGauge;//ゲージを最大に
             barrierArea.gameObject.SetActive(true);
             PlayerMove.barrierFlag = false;
         }
-        barrierCountTime = 0;
-        var bullet = other.GetComponent<Bullet>();
-        bullet.SetSpeed(-bullet.GetSpeed());
-        bullet.gameObject.tag = "ReflectBullet";
-        bullet.isReflect = true;
     }
 }
