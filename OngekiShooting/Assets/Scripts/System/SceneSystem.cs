@@ -25,37 +25,43 @@ public class SceneSystem : MonoBehaviour
     void TitleLoad()
     {
         if (sceneType != SceneType.Title) return;
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        LoadScene("GamePlay");
+        if (Input.GetKeyDown(KeyCode.Space))
+            LoadScene("shota");
     }
 
     void GamePlayLoad()
     {
         if (sceneType != SceneType.GamePlay) return;
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        LoadScene("Result");
-        if(Input.GetKeyDown(KeyCode.Alpha2))
-        LoadScene("GameOver");
+
+        if (SceneState.isClear || SceneState.isDead)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                LoadScene("Title");
+                SceneState.isClear = false;
+                SceneState.isDead = false;
+            }
+        }
     }
 
     void ResultLoad()
     {
         if (sceneType != SceneType.Result) return;
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        LoadScene("Ending");
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            LoadScene("Ending");
     }
     void EndingLoad()
     {
         if (sceneType != SceneType.Ending) return;
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        LoadScene("Title");
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            LoadScene("Title");
     }
 
     void GameOverLoad()
     {
         if (sceneType != SceneType.GameOver) return;
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        LoadScene("Title");
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            LoadScene("Title");
     }
 
     enum SceneType
@@ -66,4 +72,10 @@ public class SceneSystem : MonoBehaviour
         Ending,
         GameOver,
     }
+}
+
+public static class SceneState
+{
+    public static bool isClear;
+    public static bool isDead;
 }

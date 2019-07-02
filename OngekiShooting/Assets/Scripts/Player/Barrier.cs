@@ -50,6 +50,7 @@ public class Barrier : MonoBehaviour
             PlayerMove.barrierGauge = PlayerMove.maxBarrierGauge;//ゲージを最大に
             barrierArea.gameObject.SetActive(true);
             PlayerMove.barrierFlag = false;
+            ses[3].Play();
         }
     }
 }

@@ -142,6 +142,7 @@ public class BossAI : MonoBehaviour
     {
         if(hp<=0)
         {
+            SceneState.isClear = true;
             Destroy(gameObject);
         }
     }
