@@ -7,19 +7,19 @@ public class PlayerHP : MonoBehaviour
     // Start is called before the first frame update
     public int maxHP = 100;
     public float invincibleTime = 3;//無敵時間
+    [SerializeField, Header("死亡SE")]
+    AudioClip deadSE;
 
     [HideInInspector]
     public int hp;//ヒットポイント
     private bool isDamage;
     Material mat;
-    private AudioSource[] ses;
 
     void Start()
     {
         hp = maxHP;
         isDamage = false;
         mat = gameObject.GetComponent<MeshRenderer>().material;
-        ses = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class PlayerHP : MonoBehaviour
     {
         if (hp <= 0)
         {
-            ses[0].Play();
+            AudioSource.PlayClipAtPoint(deadSE, transform.position);
             SceneState.isDead = true;
             gameObject.SetActive(false);
         }
