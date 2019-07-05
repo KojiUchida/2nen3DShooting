@@ -25,6 +25,7 @@ public class PlayerHP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        hp = Mathf.Clamp(hp, 0, maxHP);
         Death();
         Blink();
     }
@@ -41,7 +42,7 @@ public class PlayerHP : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        bool damageTag = other.tag == "EnemyBullet"|| other.tag == "DeadBullet" || other.tag == "EnemyReflectBullet";
+        bool damageTag = other.tag == "EnemyBullet" || other.tag == "DeadBullet" || other.tag == "EnemyReflectBullet";
         if (!damageTag) return;
         if (isDamage) return;
         var bullet = other.GetComponent<Bullet>();
@@ -51,7 +52,6 @@ public class PlayerHP : MonoBehaviour
     public void Damage(int damage)
     {
         if (isDamage) return;
-        if (PlayerMove.barrierFlag) return;
         if (damage > hp) damage = hp;
         hp -= damage;
         StartCoroutine(DamageCoroutine());
