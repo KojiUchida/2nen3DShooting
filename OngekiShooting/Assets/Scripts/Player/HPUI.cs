@@ -43,8 +43,8 @@ public class HPUI : MonoBehaviour
     void ChangeGaugeColor()
     {
         gaugeFill.color = initColor;
-        if (gaugeSlider.value > 1.0f / 3.0f) gaugeFill.color = firstColor;
-        if (gaugeSlider.value > 2.0f / 3.0f) gaugeFill.color = secondColor;
+        if (gaugeSlider.value >= 1.0f / 3.0f) gaugeFill.color = firstColor;
+        if (gaugeSlider.value >= 2.0f / 3.0f) gaugeFill.color = secondColor;
         if (gaugeSlider.value == 1.0f) gaugeFill.color = thirdColor;
     }
 }

@@ -1335,7 +1335,7 @@ PrefabInstance:
     - target: {fileID: 3351247539389111340, guid: 924f9bd85ddf1e5478db43168de41fda,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3351247539389111338, guid: 924f9bd85ddf1e5478db43168de41fda,
         type: 3}
@@ -1558,7 +1558,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   stageWidth: 10
-  gaugeTime: 10
+  gaugeTime: 9
+  firstHeal: 10
+  secondHeal: 20
+  maxHeal: 30
   gauge: 0
 --- !u!54 &3892635388544908754
 Rigidbody:
