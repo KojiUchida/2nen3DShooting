@@ -51,7 +51,6 @@ public class PlayerHP : MonoBehaviour
     public void Damage(int damage)
     {
         if (isDamage) return;
-        if (PlayerMove.barrierFlag) return;
         if (damage > hp) damage = hp;
         hp -= damage;
         StartCoroutine(DamageCoroutine());
