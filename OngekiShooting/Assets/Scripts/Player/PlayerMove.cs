@@ -9,7 +9,9 @@ public class PlayerMove : MonoBehaviour
     public float speed = 5;
     public GameObject barrier;
     public static bool barrierFlag;//バリア状態かどうか
-    
+    [SerializeField, Header("ステージ横幅")]
+    float stageWidth = 5.0f;
+
     public static float maxBarrierGauge = 100;//最大バリアゲージ
     public static float barrierGauge;//現在のバリア用ゲージ
     void Start()
@@ -26,19 +28,12 @@ public class PlayerMove : MonoBehaviour
         if (Pause.isPause) return;
         rigidbody.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * speed, 0, 0);
         Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, -5, 5);
+        pos.x = Mathf.Clamp(pos.x, -stageWidth, stageWidth);
         transform.position = pos;
         BarrierMode();
         if (Input.GetKeyDown(KeyCode.X))
         {
-            //if (barrierFlag) { barrierFlag = false; countTime = 0; }
-            //else
-            //{
-            //    barrierFlag = true;
-            //    countTime += Time.deltaTime;
-            //}
-
-            if(maxBarrierGauge==barrierGauge && !barrierFlag)
+            if (maxBarrierGauge == barrierGauge && !barrierFlag)
             {
                 barrierFlag = true;
             }

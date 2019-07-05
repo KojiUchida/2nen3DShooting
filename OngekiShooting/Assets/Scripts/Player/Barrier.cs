@@ -49,12 +49,12 @@ public class Barrier : MonoBehaviour
 
     private void JustGuard()
     {
-        if (justGuardTime >= barrierCountTime)//ジャストガード成功
-        {
-            PlayerMove.barrierGauge = 0;//ゲージを0に
-            barrierArea.gameObject.SetActive(true);
-            PlayerMove.barrierFlag = false;
-            ses[3].Play();
-        }
+        //if (justGuardTime >= barrierCountTime)//ジャストガード成功
+        //{
+        //    PlayerMove.barrierGauge = 0;//ゲージを0に
+        //    barrierArea.gameObject.SetActive(true);
+        //    PlayerMove.barrierFlag = false;
+        //    ses[3].Play();
+        //}
     }
 }

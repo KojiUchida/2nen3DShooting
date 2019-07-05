@@ -35,7 +35,7 @@ public class BossAI : MonoBehaviour
     {
         bossShootFlag = false;
         rigidbody = GetComponent<Rigidbody>();
-        player = FindObjectOfType<PlayerMove>().gameObject;
+        player = FindObjectOfType<PlayerMove>()?.gameObject;
         attackBehaviour = 0;
         hpBehaviour = 0;
         countTime = 0;
