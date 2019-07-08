@@ -24,6 +24,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Fade.isFadeIn) return;
         timeElapsed += Time.deltaTime;
         SpawnEnemy();
     }
