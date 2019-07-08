@@ -9,6 +9,7 @@ public class AI : MonoBehaviour
     protected int hp;
 
     protected AudioSource[] ses;
+    protected Material mat;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class AI : MonoBehaviour
     {
         hp = maxHP;
         ses = GetComponents<AudioSource>();
+        mat = GetComponent<MeshRenderer>().material;
     }
 
     public virtual void Attack()
