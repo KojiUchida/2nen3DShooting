@@ -8,6 +8,11 @@ public class SceneSystem : MonoBehaviour
     [SerializeField, Header("現在のシーンタイプ")]
     SceneType sceneType;
 
+    private void Start()
+    {
+        Fade.FadeIn();
+    }
+
     private void Update()
     {
         TitleLoad();
@@ -19,14 +24,18 @@ public class SceneSystem : MonoBehaviour
 
     public void LoadScene(string nextScene)
     {
-        SceneManager.LoadScene(nextScene);
+        Fade.FadeOut(nextScene);
+        //Fade.FadeIn();
+        //SceneManager.LoadScene(nextScene);
     }
 
     void TitleLoad()
     {
         if (sceneType != SceneType.Title) return;
-        if (Input.GetKeyDown(KeyCode.Space))
-            LoadScene("shota");
+        if (!Input.GetKeyDown(KeyCode.Space)) return;
+
+        LoadScene("shota");
+        
     }
 
     void GamePlayLoad()
@@ -37,6 +46,7 @@ public class SceneSystem : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+
                 LoadScene("Title");
                 SceneState.isClear = false;
                 SceneState.isDead = false;
@@ -47,21 +57,24 @@ public class SceneSystem : MonoBehaviour
     void ResultLoad()
     {
         if (sceneType != SceneType.Result) return;
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            LoadScene("Ending");
+        if (!Input.GetKeyDown(KeyCode.Alpha1)) return;
+
+        LoadScene("Ending");
     }
     void EndingLoad()
     {
         if (sceneType != SceneType.Ending) return;
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            LoadScene("Title");
+        if (!Input.GetKeyDown(KeyCode.Alpha1)) return;
+
+        LoadScene("Title");
     }
 
     void GameOverLoad()
     {
         if (sceneType != SceneType.GameOver) return;
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            LoadScene("Title");
+        if (!Input.GetKeyDown(KeyCode.Alpha1)) return;
+
+        LoadScene("Title");
     }
 
     enum SceneType
