@@ -47,10 +47,17 @@ public class PlayerMove : MonoBehaviour
 
     void Move()
     {
-        rigid.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * speed, 0, 0);
+        Vector3 vel = new Vector3(Input.GetAxisRaw("Horizontal") * speed, 0, 0);
+        rigid.velocity = vel;
         Vector3 pos = transform.position;
         pos.x = Mathf.Clamp(pos.x, -stageWidth, stageWidth);
         transform.position = pos;
+        Tilt(vel);
+    }
+
+    void Tilt(Vector3 velocity)
+    {
+
     }
 
     void Reflection()
@@ -64,18 +71,21 @@ public class PlayerMove : MonoBehaviour
         else FirstReflection();
     }
 
+    void Reflect(Bullet b)
+    {
+        if (b.tag == "PlayerBullet" || b.tag == "ReflectBullet") return;
+        b.tag = "ReflectBullet";
+        b.isReflect = true;
+        b.SetSpeed(-b.GetSpeed());
+    }
+
     void FirstReflection()
     {
         playerHP.hp += firstHeal;
         Bullet[] bullets = FindObjectsOfType<Bullet>();
         foreach (var b in bullets)
         {
-            if (b.tag != "PlayerBullet")
-            {
-                b.tag = "ReflectBullet";
-                b.isReflect = true;
-                b.SetSpeed(-b.GetSpeed());
-            }
+            Reflect(b);
         }
     }
 
@@ -85,12 +95,7 @@ public class PlayerMove : MonoBehaviour
         Bullet[] bullets = FindObjectsOfType<Bullet>();
         foreach (var b in bullets)
         {
-            if (b.tag != "PlayerBullet")
-            {
-                b.tag = "ReflectBullet";
-                b.isReflect = true;
-                b.SetSpeed(-b.GetSpeed());
-            }
+            Reflect(b);
         }
     }
 
@@ -100,12 +105,7 @@ public class PlayerMove : MonoBehaviour
         Bullet[] bullets = FindObjectsOfType<Bullet>();
         foreach (var b in bullets)
         {
-            if (b.tag != "PlayerBullet")
-            {
-                b.tag = "ReflectBullet";
-                b.isReflect = true;
-                b.SetSpeed(-b.GetSpeed());
-            }
+            Reflect(b);
         }
     }
 }

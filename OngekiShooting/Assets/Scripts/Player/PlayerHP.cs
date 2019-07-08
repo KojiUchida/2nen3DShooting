@@ -19,7 +19,7 @@ public class PlayerHP : MonoBehaviour
     {
         hp = maxHP;
         isDamage = false;
-        mat = gameObject.GetComponent<MeshRenderer>().material;
+        //mat = gameObject.GetComponent<MeshRenderer>().material;
     }
 
     // Update is called once per frame
