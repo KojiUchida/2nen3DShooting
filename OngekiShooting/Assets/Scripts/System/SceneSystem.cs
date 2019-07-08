@@ -85,6 +85,7 @@ public class SceneSystem : MonoBehaviour
         Ending,
         GameOver,
     }
+    
 }
 
 public static class SceneState
@@ -92,3 +93,4 @@ public static class SceneState
     public static bool isClear;
     public static bool isDead;
 }
+
