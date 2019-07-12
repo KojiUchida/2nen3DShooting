@@ -6,6 +6,11 @@ public class AI : MonoBehaviour
 {
     [SerializeField, Header("最大HP")]
     protected int maxHP = 10;
+    [SerializeField, Header("死亡時パーティクル")]
+    ParticleSystem deadParticle;
+    [SerializeField, Header("死亡SE")]
+    AudioClip deadSE;
+
     protected int hp;
 
     protected AudioSource[] ses;
@@ -55,6 +60,7 @@ public class AI : MonoBehaviour
         if (!DamageObj(other)) return;
         var bullet = other.GetComponent<Bullet>();
         hp -= bullet.GetDamage();
+        mat.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
     }
 
     public void Damage(int damage)

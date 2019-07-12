@@ -7,6 +7,8 @@ public class PlayerHP : MonoBehaviour
     // Start is called before the first frame update
     public int maxHP = 100;
     public float invincibleTime = 3;//無敵時間
+    [SerializeField, Header("死亡時パーティクル")]
+    ParticleSystem deadParticle;
     [SerializeField, Header("死亡SE")]
     AudioClip deadSE;
 
@@ -32,12 +34,11 @@ public class PlayerHP : MonoBehaviour
 
     void Death()
     {
-        if (hp <= 0)
-        {
-            AudioSource.PlayClipAtPoint(deadSE, transform.position);
-            SceneState.isDead = true;
-            gameObject.SetActive(false);
-        }
+        if (hp > 0) return;
+        AudioSource.PlayClipAtPoint(deadSE, transform.position);
+        Instantiate(deadParticle, transform.position, Quaternion.identity);
+        SceneState.isDead = true;
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
