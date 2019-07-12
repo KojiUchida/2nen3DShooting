@@ -6,6 +6,11 @@ public class AI : MonoBehaviour
 {
     [SerializeField, Header("最大HP")]
     protected int maxHP = 10;
+    [SerializeField, Header("死亡時パーティクル")]
+    ParticleSystem deadParticle;
+    [SerializeField, Header("死亡SE")]
+    AudioClip deadSE;
+
     protected int hp;
 
     protected AudioSource[] ses;

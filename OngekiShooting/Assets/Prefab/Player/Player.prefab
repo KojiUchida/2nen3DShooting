@@ -347,6 +347,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 200
   invincibleTime: 1
+  deadParticle: {fileID: 1197710827036720507, guid: 3aca085a24d56144586a3a73d16a41ca,
+    type: 3}
   deadSE: {fileID: 8300000, guid: b47a28417e0bbc34881c18a597b52176, type: 3}
   hp: 9999
 --- !u!82 &3388571755924633997
