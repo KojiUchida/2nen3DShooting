@@ -92,6 +92,7 @@ public class PlayerMove : MonoBehaviour
     void Reflect(Bullet b)
     {
         if (b.tag == "PlayerBullet" || b.tag == "ReflectBullet") return;
+        if (b.transform.position.z < transform.position.z) return;
         b.tag = "ReflectBullet";
         b.isReflect = true;
         b.SetSpeed(-b.GetSpeed());

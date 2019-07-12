@@ -55,6 +55,7 @@ public class AI : MonoBehaviour
         if (!DamageObj(other)) return;
         var bullet = other.GetComponent<Bullet>();
         hp -= bullet.GetDamage();
+        mat.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
     }
 
     public void Damage(int damage)
