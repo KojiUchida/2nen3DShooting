@@ -82,16 +82,17 @@ public class PlayerMove : MonoBehaviour
     {
         if (!Input.GetKeyDown(KeyCode.X)) return;
         if (gauge / gaugeTime < 1.0f / 3.0f) return;
-        gauge -= gaugeTime / 3;
 
         if (gauge / gaugeTime == 1.0f) MaxReflection();
-        else if (gauge / gaugeTime < 2.0f / 3.0f) SecondReflection();
+        else if (gauge / gaugeTime > 2.0f / 3.0f) SecondReflection();
         else FirstReflection();
+        gauge -= gaugeTime / 3;
     }
 
     void Reflect(Bullet b)
     {
         if (b.tag == "PlayerBullet" || b.tag == "ReflectBullet") return;
+        if (b.transform.position.z < transform.position.z) return;
         b.tag = "ReflectBullet";
         b.isReflect = true;
         b.SetSpeed(-b.GetSpeed());
