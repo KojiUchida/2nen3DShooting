@@ -24,6 +24,8 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector]
     public float gauge;
 
+    float rotVelocity = 0;
+
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
@@ -57,7 +59,23 @@ public class PlayerMove : MonoBehaviour
 
     void Tilt(Vector3 velocity)
     {
+        Vector3 rot = transform.rotation.eulerAngles;
 
+        if (velocity.x > 0)
+        {
+            rot.z = -30;
+            transform.rotation = Quaternion.Euler(rot);
+        }
+        else if (velocity.x < 0)
+        {
+            rot.z = 30;
+            transform.rotation = Quaternion.Euler(rot);
+        }
+        else
+        {
+            rot.z = 0;
+            transform.rotation = Quaternion.Euler(rot);
+        }
     }
 
     void Reflection()
