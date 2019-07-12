@@ -772,7 +772,7 @@ PrefabInstance:
     - target: {fileID: 3892635389216580165, guid: b16b8d9fee219414ab078095d7a22475,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3892635389216580173, guid: b16b8d9fee219414ab078095d7a22475,
         type: 3}
@@ -832,7 +832,7 @@ PrefabInstance:
     - target: {fileID: 3892635389727660265, guid: b16b8d9fee219414ab078095d7a22475,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3892635390066506026, guid: b16b8d9fee219414ab078095d7a22475,
         type: 3}
@@ -842,7 +842,7 @@ PrefabInstance:
     - target: {fileID: 7194130928287985773, guid: b16b8d9fee219414ab078095d7a22475,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b16b8d9fee219414ab078095d7a22475, type: 3}
@@ -20404,7 +20404,7 @@ PrefabInstance:
     - target: {fileID: 719382142425409086, guid: 11f63f9e2b29ccc43b7ccccf179d779b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 719382142425409085, guid: 11f63f9e2b29ccc43b7ccccf179d779b,
         type: 3}
@@ -20461,6 +20461,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 719382142425409084, guid: 11f63f9e2b29ccc43b7ccccf179d779b,
+        type: 3}
+      propertyPath: RotationModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 719382142425409087, guid: 11f63f9e2b29ccc43b7ccccf179d779b,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11f63f9e2b29ccc43b7ccccf179d779b, type: 3}
 --- !u!1001 &1197710827624863890
@@ -20478,7 +20488,7 @@ PrefabInstance:
     - target: {fileID: 1197710827036720501, guid: 3aca085a24d56144586a3a73d16a41ca,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1197710827036720504, guid: 3aca085a24d56144586a3a73d16a41ca,
         type: 3}
@@ -20533,6 +20543,51 @@ PrefabInstance:
     - target: {fileID: 1197710827036720504, guid: 3aca085a24d56144586a3a73d16a41ca,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197710826402787329, guid: 3aca085a24d56144586a3a73d16a41ca,
+        type: 3}
+      propertyPath: SizeModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197710826402787329, guid: 3aca085a24d56144586a3a73d16a41ca,
+        type: 3}
+      propertyPath: SizeModule.curve.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197710826402787329, guid: 3aca085a24d56144586a3a73d16a41ca,
+        type: 3}
+      propertyPath: SizeModule.y.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197710826402787329, guid: 3aca085a24d56144586a3a73d16a41ca,
+        type: 3}
+      propertyPath: SizeModule.z.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197710826402787329, guid: 3aca085a24d56144586a3a73d16a41ca,
+        type: 3}
+      propertyPath: RotationModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197710826402787329, guid: 3aca085a24d56144586a3a73d16a41ca,
+        type: 3}
+      propertyPath: RotationModule.x.scalar
+      value: 0.7853981
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197710826402787329, guid: 3aca085a24d56144586a3a73d16a41ca,
+        type: 3}
+      propertyPath: RotationModule.y.scalar
+      value: 0.7853981
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197710826402787329, guid: 3aca085a24d56144586a3a73d16a41ca,
+        type: 3}
+      propertyPath: RotationModule.curve.scalar
+      value: 0.7853981
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197710826402787328, guid: 3aca085a24d56144586a3a73d16a41ca,
+        type: 3}
+      propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -20702,6 +20757,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyDeadPt1
       objectReference: {fileID: 0}
+    - target: {fileID: 8845820414873594038, guid: 04027fab58139e5419f54c98a38bf5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8623879029196457500, guid: 04027fab58139e5419f54c98a38bf5fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20755,6 +20815,56 @@ PrefabInstance:
     - target: {fileID: 8623879029196457500, guid: 04027fab58139e5419f54c98a38bf5fc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889890044984091234, guid: 04027fab58139e5419f54c98a38bf5fc,
+        type: 3}
+      propertyPath: RotationModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889890044984091234, guid: 04027fab58139e5419f54c98a38bf5fc,
+        type: 3}
+      propertyPath: RotationModule.x.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889890044984091234, guid: 04027fab58139e5419f54c98a38bf5fc,
+        type: 3}
+      propertyPath: RotationModule.y.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889890044984091234, guid: 04027fab58139e5419f54c98a38bf5fc,
+        type: 3}
+      propertyPath: RotationModule.curve.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889890044984091234, guid: 04027fab58139e5419f54c98a38bf5fc,
+        type: 3}
+      propertyPath: RotationModule.curve.minScalar
+      value: 6.283185
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889890044984091234, guid: 04027fab58139e5419f54c98a38bf5fc,
+        type: 3}
+      propertyPath: RotationModule.separateAxes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889890044984091234, guid: 04027fab58139e5419f54c98a38bf5fc,
+        type: 3}
+      propertyPath: RotationModule.curve.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889890044984091234, guid: 04027fab58139e5419f54c98a38bf5fc,
+        type: 3}
+      propertyPath: RotationModule.x.minScalar
+      value: 6.283185
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889890044984091234, guid: 04027fab58139e5419f54c98a38bf5fc,
+        type: 3}
+      propertyPath: RotationModule.y.minScalar
+      value: 6.283185
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246706580136288224, guid: 04027fab58139e5419f54c98a38bf5fc,
+        type: 3}
+      propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
