@@ -6,14 +6,13 @@ public class AI : MonoBehaviour
 {
     [SerializeField, Header("最大HP")]
     protected int maxHP = 10;
+    [SerializeField, Header("獲得できるスコア")]
+    int score = 10;
     [SerializeField, Header("死亡時パーティクル")]
     ParticleSystem deadParticle;
-    [SerializeField, Header("死亡SE")]
-    AudioClip deadSE;
 
     protected int hp;
 
-    protected AudioSource[] ses;
     protected Material mat;
 
     // Start is called before the first frame update
@@ -32,7 +31,6 @@ public class AI : MonoBehaviour
     public virtual void Init()
     {
         hp = maxHP;
-        ses = GetComponents<AudioSource>();
         mat = GetComponentInChildren<MeshRenderer>().material;
     }
 
@@ -44,8 +42,15 @@ public class AI : MonoBehaviour
     public virtual void Death()
     {
         if (!IsDead()) return;
-        ses[0].Play();
+        GenerateParticle();
+        ScoreManager.AddScore(score);
         Destroy(gameObject);
+    }
+
+    void GenerateParticle()
+    {
+        if (deadParticle == null) return;
+        Instantiate(deadParticle, transform.position, Quaternion.identity);
     }
 
     bool IsDead() { return hp <= 0; }
