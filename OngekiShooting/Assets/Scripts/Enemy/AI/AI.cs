@@ -28,7 +28,7 @@ public class AI : MonoBehaviour
     {
         hp = maxHP;
         ses = GetComponents<AudioSource>();
-        mat = GetComponent<MeshRenderer>().material;
+        mat = GetComponentInChildren<MeshRenderer>().material;
     }
 
     public virtual void Attack()
