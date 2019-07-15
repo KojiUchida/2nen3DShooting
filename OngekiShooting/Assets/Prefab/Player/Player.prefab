@@ -462,9 +462,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   stageWidth: 10
-  gaugeTime: 9
-  firstHeal: 10
-  secondHeal: 20
+  gaugeTime: 18
+  firstHeal: 0
+  secondHeal: 30
   maxHeal: 30
   gauge: 0
 --- !u!114 &3892635389216580163
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4790767624333903567, guid: d3e32766aee3eff408396fa6d432e7d4, type: 3}
   muzzle: {fileID: 3892635388500622283}
-  shootsTime: 0.1
+  shootsTime: 0.3
 --- !u!114 &3892635389216580164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83511971cd956b44e96e7e9a911a5aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 150
   invincibleTime: 1
   deadParticle: {fileID: 1197710827036720507, guid: 3aca085a24d56144586a3a73d16a41ca,
     type: 3}
