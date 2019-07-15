@@ -30,6 +30,11 @@ public class BossAI : MonoBehaviour
     public Transform muzzle;
     public float shootsTime = 0.2f;
     private float time;
+    private float barierTime;//バリア用
+    private bool barierFlag;//バリア用フラグ
+    private float migrationTime;//移動用
+    private bool migrationFlag;//移動用フラグ
+    
 
     void Start()
     {
@@ -44,6 +49,11 @@ public class BossAI : MonoBehaviour
         bullet.SetSpeed(200);
         right = false;
         time = 0;
+        barierTime = 0;
+        barierFlag = false;
+        migrationTime = 0;
+        migrationFlag = false;
+        
     }
 
     // Update is called once per frame
@@ -55,26 +65,29 @@ public class BossAI : MonoBehaviour
         {
             case 0:Attack1();break;
             case 1:Attack2();break;
-            case 2:Attack3();break;
+            //case 2:Attack3();break;
         }
         switch(hpBehaviour)
         {
             case 0: Move1(); break;
             case 1: Move2(); break;
-            case 2: Move3(); break;
+            //case 2: Move3(); break;
         }
         countTime += Time.deltaTime;
         time += Time.deltaTime;
-
-        if (hp <= maxHp / 3) 
-        {
-            attackBehaviour = 2;
-            hpBehaviour = 2;
-        }
-        else if (hp <= (maxHp / 3) * 2) 
+        barierTime += Time.deltaTime;
+        if (hp <= maxHp / 2)
         {
             attackBehaviour = 1;
             hpBehaviour = 1;
+        }
+
+        if(barierTime>=5)
+        {
+            if (barierFlag) barierFlag = false;
+            else barierFlag = true;
+
+            barierTime = 0;
         }
     }
 
@@ -85,30 +98,19 @@ public class BossAI : MonoBehaviour
 
     void Move2()
     {
-        rigidbody.velocity = new Vector3(0 - rigidbody.position.x, 0, 0) * speed * Time.deltaTime;
-    }
+        migrationTime += Time.deltaTime;
+        if (migrationFlag) rigidbody.velocity = new Vector3(player.transform.position.x - rigidbody.position.x, 0, 0) * speed * Time.deltaTime;
+        else rigidbody.velocity = Vector3.zero;
 
-    void Move3()
-    {
-        if(right)
+        if (migrationTime>=3)
         {
-            rigidbody.velocity = new Vector3(1, 0, (20 - rigidbody.position.z)*0.11f) * speed * Time.deltaTime;
-        }
-        else
-        {
-            rigidbody.velocity = new Vector3(-1, 0, (20 - rigidbody.position.z) * 0.11f) * speed * Time.deltaTime;
-        }
-
-        //画面の端にきているかどうか
-        if (rigidbody.position.x >= 5) 
-        {
-            right = false;
-        }
-        if (rigidbody.position.x <=  -5) 
-        {
-            right = true;
+            if (migrationFlag) migrationFlag = false;
+            else migrationFlag = true;
+            
+            migrationTime = 0;
         }
     }
+    
 
     void Attack1()
     {
@@ -128,16 +130,13 @@ public class BossAI : MonoBehaviour
         {
             countTime = 0;
             if (enemy1 == null || enemy2 == null) return;
-            Instantiate(enemy1, transform.position + new Vector3(6, 0), Quaternion.identity);
-            Instantiate(enemy2, transform.position + new Vector3(-6, 0), Quaternion.identity);
+            float x = Random.Range(-6, 6);
+            Instantiate(enemy1, transform.position + new Vector3(x, 0), Quaternion.identity);
+            x = Random.Range(-6, 6);
+            Instantiate(enemy2, transform.position + new Vector3(x, 0), Quaternion.identity);
         }
     }
-
-    void Attack3()
-    {
-
-    }
-
+    
     void Dead()
     {
         if(hp<=0)
@@ -169,6 +168,7 @@ public class BossAI : MonoBehaviour
     private void ReflectBullet(Collider other)
     {
         if (other.tag != "PlayerBullet") return;
+        if (!barierFlag) return;
         var bullet = other.GetComponent<PlayerBullet>();
         bullet.SetSpeed(-bullet.GetSpeed());
         bullet.gameObject.tag = "EnemyReflectBullet";
@@ -178,6 +178,7 @@ public class BossAI : MonoBehaviour
     void Shoots()
     {
         if (time < shootsTime) return;
+        if (attackBehaviour == 0) return;
         Instantiate(bossBullet, muzzle.position, Quaternion.identity);
         time = 0;
     }
