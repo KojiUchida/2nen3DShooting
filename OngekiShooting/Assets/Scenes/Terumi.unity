@@ -20631,11 +20631,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 2456754513044865248, guid: bc4610a8c1d1bbd479ec61fae22a152c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2456754513044865242, guid: bc4610a8c1d1bbd479ec61fae22a152c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20696,26 +20691,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 796018860}
-    - target: {fileID: 2456754513044865255, guid: bc4610a8c1d1bbd479ec61fae22a152c,
-        type: 3}
-      propertyPath: attackTime1
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2456754513044865255, guid: bc4610a8c1d1bbd479ec61fae22a152c,
-        type: 3}
-      propertyPath: attackTime2
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2456754513044865255, guid: bc4610a8c1d1bbd479ec61fae22a152c,
-        type: 3}
-      propertyPath: rightBulletPos
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2456754513044865255, guid: bc4610a8c1d1bbd479ec61fae22a152c,
-        type: 3}
-      propertyPath: leftBulletPos
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc4610a8c1d1bbd479ec61fae22a152c, type: 3}
 --- !u!1001 &3231273208789745410
