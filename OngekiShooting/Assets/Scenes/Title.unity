@@ -600,7 +600,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2095276109}
+      - m_Target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
+          type: 3}
         m_MethodName: GameEnd
         m_Mode: 1
         m_Arguments:
@@ -729,8 +730,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2095276109}
-        m_MethodName: TitleLoad
+      - m_Target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
+          type: 3}
+        m_MethodName: LoadGamePlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -844,11 +846,6 @@ PrefabInstance:
     - target: {fileID: 2079398238527029217, guid: 7af419d762207484a9235e6770e4ee5f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
-        type: 3}
-      propertyPath: sceneType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1241,15 +1238,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2095276109 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
-    type: 3}
-  m_PrefabInstance: {fileID: 491773910}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58921ef88e766484ebdc800e07a41af9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

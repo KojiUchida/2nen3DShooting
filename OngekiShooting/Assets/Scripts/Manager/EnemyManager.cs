@@ -25,6 +25,7 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         if (Fade.isFadeIn) return;
+        if (SceneState.isDead) return;
         timeElapsed += Time.deltaTime;
         SpawnEnemy();
     }
@@ -53,7 +54,5 @@ public class EnemyManager : MonoBehaviour
             case MoveType.Sucide: return obj.AddComponent<SuicideMove>();
             default: Debug.Assert(false, "not come here..."); return null;
         }
-
-
     }
 }
