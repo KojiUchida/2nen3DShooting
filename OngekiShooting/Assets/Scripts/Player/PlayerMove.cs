@@ -86,7 +86,6 @@ public class PlayerMove : MonoBehaviour
         if (gauge / gaugeTime == 1.0f) MaxReflection();
         else if (gauge / gaugeTime > 2.0f / 3.0f) SecondReflection();
         else FirstReflection();
-        gauge -= gaugeTime / 3;
     }
 
     void Reflect(Bullet b)
@@ -100,6 +99,7 @@ public class PlayerMove : MonoBehaviour
 
     void FirstReflection()
     {
+        gauge -= gaugeTime / 3;
         playerHP.hp += firstHeal;
         Bullet[] bullets = FindObjectsOfType<Bullet>();
         foreach (var b in bullets)
@@ -110,6 +110,7 @@ public class PlayerMove : MonoBehaviour
 
     private void SecondReflection()
     {
+        gauge -= gaugeTime * 2 / 3;
         playerHP.hp += secondHeal;
         Bullet[] bullets = FindObjectsOfType<Bullet>();
         foreach (var b in bullets)
@@ -120,6 +121,7 @@ public class PlayerMove : MonoBehaviour
 
     private void MaxReflection()
     {
+        gauge -= gaugeTime;
         playerHP.hp += maxHeal;
         Bullet[] bullets = FindObjectsOfType<Bullet>();
         foreach (var b in bullets)

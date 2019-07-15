@@ -14,12 +14,17 @@ public class SceneSystem : MonoBehaviour
     [SerializeField, Header("ゲームオーバー時のUI")]
     GameObject gameoverUI;
     [SerializeField, Header("ゲームオーバー表示までの時間")]
-    float DelayTime;
+    float gameOverDelay = 1.0f;
+    [SerializeField, Header("ゲームオーバー表示までの時間")]
+    float clearDelay = 3.0f;
 
     bool previousIsDead;
+    bool previousIsBossDead;
 
     private void Start()
     {
+        previousIsBossDead = true;
+        previousIsDead = true;
         Fade.FadeIn();
     }
 
@@ -28,12 +33,15 @@ public class SceneSystem : MonoBehaviour
         SceneState.isClear = false;
         SceneState.isDead = false;
         SceneState.isGameOver = false;
+        SceneState.isBossDead = false;
     }
 
     private void Update()
     {
         CheckDead();
+        CheckBossDead();
         previousIsDead = SceneState.isDead;
+        previousIsBossDead = SceneState.isBossDead;
         gameoverUI.SetActive(SceneState.isGameOver);
     }
 
@@ -82,10 +90,24 @@ public class SceneSystem : MonoBehaviour
         eventSystem.SetSelectedGameObject(selectButton.gameObject);
     }
 
+    void CheckBossDead()
+    {
+        if (previousIsBossDead || !SceneState.isBossDead) return;
+        StartCoroutine(ClearCoroutine());
+    }
+
     IEnumerator GameOverCoroutine()
     {
-        yield return new WaitForSeconds(DelayTime);
+        yield return new WaitForSeconds(gameOverDelay);
         SceneState.isGameOver = true;
+    }
+
+    IEnumerator ClearCoroutine()
+    {
+        yield return new WaitForSeconds(clearDelay);
+        SceneState.isBossDead = true;
+        SceneState.isClear = false;
+        LoadResult();
     }
 
     enum SceneType
@@ -103,5 +125,6 @@ public static class SceneState
     public static bool isClear;
     public static bool isDead;
     public static bool isGameOver;
+    public static bool isBossDead;
 }
 
