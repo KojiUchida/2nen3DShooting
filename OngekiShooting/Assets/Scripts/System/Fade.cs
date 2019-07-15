@@ -19,7 +19,7 @@ public class Fade : MonoBehaviour
 
     //フェードしたい時間（単位は秒）
     //private static float fadeTime = 0.2f;
-    private static float fadeTime = 3f;
+    private static float fadeTime = 1f;
 
     //遷移先のシーン番号
     private static string nextScene;

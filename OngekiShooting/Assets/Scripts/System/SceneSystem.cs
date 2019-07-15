@@ -1,81 +1,67 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class SceneSystem : MonoBehaviour
 {
-    [SerializeField, Header("現在のシーンタイプ")]
-    SceneType sceneType;
+    [SerializeField, Header("イベントシステム")]
+    EventSystem eventSystem;
+    [SerializeField, Header("初めに選択するボタン")]
+    Button selectButton;
+    [SerializeField, Header("ゲームオーバー時のUI")]
+    GameObject gameoverUI;
+    [SerializeField, Header("ゲームオーバー表示までの時間")]
+    float DelayTime;
+
+    bool previousIsDead;
 
     private void Start()
     {
         Fade.FadeIn();
     }
 
+    private void InitState()
+    {
+        SceneState.isClear = false;
+        SceneState.isDead = false;
+        SceneState.isGameOver = false;
+    }
+
     private void Update()
     {
-        GamePlayLoad();
-        ResultLoad();
-        EndingLoad();
-        GameOverLoad();
+        CheckDead();
+        previousIsDead = SceneState.isDead;
+        gameoverUI.SetActive(SceneState.isGameOver);
     }
 
     void LoadScene(string nextScene)
     {
         SceneManager.LoadScene(nextScene);
-
     }
 
     public void FadeLoad(string nextScene)
     {
         Fade.FadeOut(nextScene);
-        //Fade.FadeIn();
-        //SceneManager.LoadScene(nextScene);
     }
 
-    public void TitleLoad()
+    public void LoadGamePlay()
     {
-        if (sceneType != SceneType.Title) return;
+        InitState();
 
         FadeLoad("koji");
     }
 
-    public void GamePlayLoad()
+    public void LoadResult()
     {
-        if (sceneType != SceneType.GamePlay) return;
-
-        if (SceneState.isClear || SceneState.isDead)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-
-                FadeLoad("Title");
-                SceneState.isClear = false;
-                SceneState.isDead = false;
-            }
-        }
+        FadeLoad("Result");
     }
 
-    public void ResultLoad()
+    public void LoadTitle()
     {
-        if (sceneType != SceneType.Result) return;
-        if (!Input.GetKeyDown(KeyCode.Alpha1)) return;
-
-        FadeLoad("Ending");
-    }
-    public void EndingLoad()
-    {
-        if (sceneType != SceneType.Ending) return;
-        if (!Input.GetKeyDown(KeyCode.Alpha1)) return;
-
-        FadeLoad("Title");
-    }
-
-    public void GameOverLoad()
-    {
-        if (sceneType != SceneType.GameOver) return;
-        if (!Input.GetKeyDown(KeyCode.Alpha1)) return;
+        InitState();
 
         FadeLoad("Title");
     }
@@ -89,6 +75,19 @@ public class SceneSystem : MonoBehaviour
 #endif
     }
 
+    void CheckDead()
+    {
+        if (previousIsDead || !SceneState.isDead) return;
+        StartCoroutine(GameOverCoroutine());
+        eventSystem.SetSelectedGameObject(selectButton.gameObject);
+    }
+
+    IEnumerator GameOverCoroutine()
+    {
+        yield return new WaitForSeconds(DelayTime);
+        SceneState.isGameOver = true;
+    }
+
     enum SceneType
     {
         Title,
@@ -97,12 +96,12 @@ public class SceneSystem : MonoBehaviour
         Ending,
         GameOver,
     }
-
 }
 
 public static class SceneState
 {
     public static bool isClear;
     public static bool isDead;
+    public static bool isGameOver;
 }
 
