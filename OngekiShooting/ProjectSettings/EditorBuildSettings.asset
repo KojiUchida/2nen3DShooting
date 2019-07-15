@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/shota.unity
     guid: 00b90803c9ce43f4e9adbb2e6bd8ec9a
+  - enabled: 1
+    path: Assets/Scenes/Koji.unity
+    guid: 0f568bf0a1e1bd344833df8c54fe5247
   m_configObjects: {}
