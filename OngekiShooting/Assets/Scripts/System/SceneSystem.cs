@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneSystem : MonoBehaviour
 {
+    [SerializeField, Header("現在のシーンタイプ")]
+    SceneType sceneType;
+    //[SerializeField, Header("サウンドマネージャー")]
+    //BGMManager bgmManager;
     [SerializeField, Header("イベントシステム")]
     EventSystem eventSystem;
     [SerializeField, Header("初めに選択するボタン")]
@@ -23,6 +27,7 @@ public class SceneSystem : MonoBehaviour
 
     private void Start()
     {
+        //bgmManager.PlayBGM((int)sceneType);
         previousIsBossDead = true;
         previousIsDead = true;
         Fade.FadeIn();
@@ -59,7 +64,7 @@ public class SceneSystem : MonoBehaviour
     {
         InitState();
 
-        FadeLoad("koji");
+        FadeLoad("shota");
     }
 
     public void LoadResult()
@@ -115,8 +120,6 @@ public class SceneSystem : MonoBehaviour
         Title,
         GamePlay,
         Result,
-        Ending,
-        GameOver,
     }
 }
 

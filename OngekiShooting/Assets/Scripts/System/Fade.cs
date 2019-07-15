@@ -24,6 +24,8 @@ public class Fade : MonoBehaviour
     //遷移先のシーン番号
     private static string nextScene;
     //フェード用のCanvasとImage生成
+
+    BGMManager bgmManager;
     static void Init()
     {
         //フェード用のCanvas生成
@@ -93,6 +95,7 @@ public class Fade : MonoBehaviour
                 isFadeOut = false;
                 alpha = 1.0f;
 
+                //bgmManager.StopBGM();
                 //次のシーンへ遷移
                 SceneManager.LoadScene(nextScene);
             }
