@@ -635,7 +635,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58921ef88e766484ebdc800e07a41af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneType: 0
+  bgmManager: {fileID: 4445975947783424683, guid: 7a6d127e9632ba740acb049392f902e0,
+    type: 3}
   eventSystem: {fileID: 0}
   selectButton: {fileID: 1256393203}
   gameoverUI: {fileID: 600959459}
-  DelayTime: 0
+  gameOverDelay: 1
+  clearDelay: 3
