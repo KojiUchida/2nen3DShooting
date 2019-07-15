@@ -8,6 +8,7 @@ public class BossAI : MonoBehaviour
 
     public static bool bossShootFlag;
     public float speed = 5;
+    public int bulletSpeed = 50;
     Rigidbody rigidbody;
     public GameObject player;
     public GameObject bulletPrefab;
@@ -46,7 +47,7 @@ public class BossAI : MonoBehaviour
         countTime = 0;
         hp = maxHp;
         bullet = bulletPrefab.GetComponent<Bullet>();
-        bullet.SetSpeed(200);
+        bullet.SetSpeed(bulletSpeed);
         right = false;
         time = 0;
         barierTime = 0;
