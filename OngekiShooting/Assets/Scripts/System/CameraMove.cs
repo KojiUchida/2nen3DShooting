@@ -8,33 +8,26 @@ public class CameraMove : MonoBehaviour
     Transform target;
     [SerializeField, Header("追従時間")]
     float smoothTime = 1.0f;
-    [SerializeField, Header("タイトルのカメラの位置")]
-    Vector3 titleCamPos;
-    [SerializeField, Header("タイトルのカメラの向き")]
-    Vector3 titleCamDir;
-    [SerializeField, Header("プレイ中のカメラの位置")]
-    Vector3 playCamPos;
-    [SerializeField, Header("プレイ中のカメラの向き")]
-    Vector3 playCamDir;
-
+    [SerializeField, Header("カメラの位置")]
     Vector3 camPos;
-    Vector3 velocity;
+    [SerializeField, Header("カメラの向き")]
+    Vector3 camDir;
 
-    bool titleToPlay;
+    Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = playCamPos;
-        transform.rotation = Quaternion.Euler(playCamDir);
+        transform.position = camPos;
+        transform.rotation = Quaternion.Euler(camDir);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.rotation = Quaternion.Euler(playCamDir);
-        Vector3 vec = target.position + playCamPos;
-        vec.y = playCamPos.y;
+        transform.rotation = Quaternion.Euler(camDir);
+        Vector3 vec = target.position + camPos;
+        vec.y = camPos.y;
         transform.position = Vector3.SmoothDamp(transform.position, vec, ref velocity, smoothTime);
     }
 }
