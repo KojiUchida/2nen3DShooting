@@ -15,30 +15,33 @@ public class SceneSystem : MonoBehaviour
 
     private void Update()
     {
-        TitleLoad();
         GamePlayLoad();
         ResultLoad();
         EndingLoad();
         GameOverLoad();
     }
 
-    public void LoadScene(string nextScene)
+    void LoadScene(string nextScene)
+    {
+        SceneManager.LoadScene(nextScene);
+
+    }
+
+    public void FadeLoad(string nextScene)
     {
         Fade.FadeOut(nextScene);
         //Fade.FadeIn();
         //SceneManager.LoadScene(nextScene);
     }
 
-    void TitleLoad()
+    public void TitleLoad()
     {
         if (sceneType != SceneType.Title) return;
-        if (!Input.GetKeyDown(KeyCode.Space)) return;
 
-        LoadScene("shota");
-        
+        FadeLoad("koji");
     }
 
-    void GamePlayLoad()
+    public void GamePlayLoad()
     {
         if (sceneType != SceneType.GamePlay) return;
 
@@ -47,34 +50,43 @@ public class SceneSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
 
-                LoadScene("Title");
+                FadeLoad("Title");
                 SceneState.isClear = false;
                 SceneState.isDead = false;
             }
         }
     }
 
-    void ResultLoad()
+    public void ResultLoad()
     {
         if (sceneType != SceneType.Result) return;
         if (!Input.GetKeyDown(KeyCode.Alpha1)) return;
 
-        LoadScene("Ending");
+        FadeLoad("Ending");
     }
-    void EndingLoad()
+    public void EndingLoad()
     {
         if (sceneType != SceneType.Ending) return;
         if (!Input.GetKeyDown(KeyCode.Alpha1)) return;
 
-        LoadScene("Title");
+        FadeLoad("Title");
     }
 
-    void GameOverLoad()
+    public void GameOverLoad()
     {
         if (sceneType != SceneType.GameOver) return;
         if (!Input.GetKeyDown(KeyCode.Alpha1)) return;
 
-        LoadScene("Title");
+        FadeLoad("Title");
+    }
+
+    public void GameEnd()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+		Application.Quit();
+#endif
     }
 
     enum SceneType
@@ -85,7 +97,7 @@ public class SceneSystem : MonoBehaviour
         Ending,
         GameOver,
     }
-    
+
 }
 
 public static class SceneState

@@ -216,7 +216,7 @@ public class PauseManager : MonoBehaviour
     public void GoTitle()
     {
         if (title == null || sceneSystem == null) return;
-        sceneSystem.LoadScene(title);
+        sceneSystem.FadeLoad(title);
         Resume();
     }
 
