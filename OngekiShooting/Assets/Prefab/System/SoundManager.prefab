@@ -43,15 +43,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3360ccbc88433e640b95f53636867d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: 1
+  volume: 0.5
   bgmVolume: 1
   seVolume: 1
+  bgmMaxVolume: 0.779
   bgm:
   - {fileID: 8300000, guid: ee41ae9218da1a248bed2f138e05f22f, type: 3}
   - {fileID: 8300000, guid: 69e894b0e9278504681fafe9f909c469, type: 3}
   - {fileID: 8300000, guid: 66732172a7ccd024cadfa34cf688b47b, type: 3}
   - {fileID: 8300000, guid: 4c999a317fc1d2745bb5865ec0bb3449, type: 3}
   - {fileID: 8300000, guid: 469156c690475cb42b831492d0f28f49, type: 3}
-  se: []
+  se:
+  - {fileID: 8300000, guid: 4711b5083edebd04db940db5c0cc1bf6, type: 3}
+  - {fileID: 8300000, guid: 695e55a81114e9047b7ea547766c8101, type: 3}
+  - {fileID: 8300000, guid: d6cc39ac92e31d8468436d1236dfc53a, type: 3}
   fadeOutTime: 1
   fadeInTime: 1
