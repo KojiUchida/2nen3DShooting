@@ -16,6 +16,7 @@ public class SuicideMove : EnemyMovement
 
     public override void Move()
     {
+        base.Move();
         Vector3 velocity = new Vector3(0, 0, -moveSpeed);
         transform.position += velocity;
         Adjust();

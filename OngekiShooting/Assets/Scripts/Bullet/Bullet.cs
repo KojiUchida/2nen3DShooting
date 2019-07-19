@@ -8,17 +8,11 @@ public class Bullet : MonoBehaviour
     protected int damage = 1;
     [SerializeField, Header("弾の速度")]
     protected float speed = 100;
-
-    [SerializeField, Header("死亡までの時間")]
-    protected float deathTime = 5.0f;
+    
 
     [HideInInspector]
     public bool isReflect;
-
-    private void Awake()
-    {
-        Destroy(gameObject, deathTime);
-    }
+    
 
     private void FixedUpdate()
     {
@@ -43,7 +37,7 @@ public class Bullet : MonoBehaviour
 
     public virtual void Move()
     {
-
+        DeathZorn();
     }
 
     public float GetSpeed() { return speed; }
@@ -51,4 +45,10 @@ public class Bullet : MonoBehaviour
 
     public int GetDamage() { return damage; }
     public void SetDamage(int damage) { this.damage = damage; }
+
+    private void DeathZorn()//z<=-25で死亡
+    {
+        if (gameObject.transform.position.z >= -25) return;
+        Destroy(gameObject);
+    }
 }

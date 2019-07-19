@@ -6,6 +6,7 @@ public class PlayerBullet : Bullet
 {
     public override void Move()
     {
+        base.Move();
         Vector3 velocity = new Vector3(0, 0, speed);
         transform.position += velocity * Time.deltaTime;
     }
