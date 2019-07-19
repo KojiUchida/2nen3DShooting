@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class SoundManager : SingletonMonoBehaviour<SoundManager>
 {
-    [SerializeField, Range(0, 1), Tooltip("マスタ音量")]
+    [SerializeField, Range(0, 1), Header("マスタ音量")]
     float volume = 1;
-    [SerializeField, Range(0, 1), Tooltip("BGMの音量")]
+    [SerializeField, Range(0, 1), Header("BGMの音量")]
     float bgmVolume = 1;
-    [SerializeField, Range(0, 1), Tooltip("SEの音量")]
+    [SerializeField, Range(0, 1), Header("SEの音量")]
     float seVolume = 1;
-    [SerializeField, Tooltip("BGM")]
+    [SerializeField, Range(0, 1), Header("BGMの最大音量")]
+    float bgmMaxVolume = 1.0f;
+
+    [SerializeField, Header("BGM")]
     AudioClip[] bgm;
-    [SerializeField, Tooltip("SE")]
+    [SerializeField, Header("SE")]
     AudioClip[] se;
-    [SerializeField, Tooltip("BGM")]
+    [SerializeField, Header("音のフェードアウト時の間隔")]
     float fadeOutTime = 1.0f;
-    [SerializeField, Tooltip("BGM")]
+    [SerializeField, Header("音のフェードインの間隔")]
     float fadeInTime = 1.0f;
 
     Dictionary<string, int> bgmIndex = new Dictionary<string, int>();
@@ -24,7 +27,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     AudioSource bgmAudioSource;
     AudioSource seAudioSource;
 
-    public bool isFade;
+    bool isFade;
 
     private void Start()
     {
@@ -153,7 +156,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     {
         if (isFade) bgmVolume -= fadeOutTime * Time.deltaTime;
         else bgmVolume += fadeInTime * Time.deltaTime;
-        bgmVolume = Mathf.Clamp(bgmVolume, 0, 1);
+        bgmVolume = Mathf.Clamp(bgmVolume, 0,bgmMaxVolume);
         bgmAudioSource.volume = BgmVolume * Volume;
     }
 

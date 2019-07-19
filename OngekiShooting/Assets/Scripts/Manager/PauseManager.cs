@@ -80,6 +80,7 @@ public class PauseManager : MonoBehaviour
     /// </summary>
     public void PauseAndResume()
     {
+        if (SceneState.isGameOver) return;
         previousVertical = currentVertical;
         currentVertical = Input.GetAxis("Vertical");
         Pausing();

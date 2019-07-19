@@ -67,7 +67,8 @@ public class SceneSystem : MonoBehaviour
     public void LoadGamePlay()
     {
         InitState();
-
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        soundManager.PlaySe(0);
         FadeLoad("shota");
     }
 

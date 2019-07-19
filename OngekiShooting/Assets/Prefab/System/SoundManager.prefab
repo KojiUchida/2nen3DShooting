@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4445975947783424680}
   - component: {fileID: 2089917419}
   m_Layer: 0
-  m_Name: BGMManager
+  m_Name: SoundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,4 +51,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 69e894b0e9278504681fafe9f909c469, type: 3}
   - {fileID: 8300000, guid: 66732172a7ccd024cadfa34cf688b47b, type: 3}
   - {fileID: 8300000, guid: 4c999a317fc1d2745bb5865ec0bb3449, type: 3}
+  - {fileID: 8300000, guid: 469156c690475cb42b831492d0f28f49, type: 3}
   se: []
+  fadeOutTime: 1
+  fadeInTime: 1

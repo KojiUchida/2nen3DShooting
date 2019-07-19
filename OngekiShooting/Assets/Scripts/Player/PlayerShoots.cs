@@ -9,12 +9,12 @@ public class PlayerShoots : MonoBehaviour
     public Transform muzzle;
     public float shootsTime = 0.2f;
     private float time;
-    private AudioSource[] ses;
+    SoundManager soundManager;
 
     void Start()
     {
         time = 0;
-        ses = GetComponents<AudioSource>();
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -28,9 +28,8 @@ public class PlayerShoots : MonoBehaviour
     {
         if (!Input.GetKey(KeyCode.Z)) return;
         if (time < shootsTime) return;
-
+        soundManager.PlaySe(2);
         Instantiate(bullet, muzzle.position, Quaternion.identity);
-        //ses[1].Play();
         time = 0;
     }
 }
