@@ -852,7 +852,17 @@ PrefabInstance:
         type: 3}
       propertyPath: bgmManager
       value: 
-      objectReference: {fileID: 1183143105}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
+        type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 2090411780}
+    - target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
+        type: 3}
+      propertyPath: firstBGM
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7af419d762207484a9235e6770e4ee5f, type: 3}
 --- !u!1 &536420787
@@ -1087,18 +1097,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742247205}
   m_CullTransparentMesh: 0
---- !u!114 &1183143105 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4445975947783424683, guid: 7a6d127e9632ba740acb049392f902e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1399177531}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e63d7fd6b7ac11f46bf2549c6a4eab27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1399177531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1109,22 +1107,22 @@ PrefabInstance:
     - target: {fileID: 4445975947783424694, guid: 7a6d127e9632ba740acb049392f902e0,
         type: 3}
       propertyPath: m_Name
-      value: BGMManager
+      value: SoundManager
       objectReference: {fileID: 0}
     - target: {fileID: 4445975947783424680, guid: 7a6d127e9632ba740acb049392f902e0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6189071
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4445975947783424680, guid: 7a6d127e9632ba740acb049392f902e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6262627
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4445975947783424680, guid: 7a6d127e9632ba740acb049392f902e0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.7680507
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4445975947783424680, guid: 7a6d127e9632ba740acb049392f902e0,
         type: 3}
@@ -1324,3 +1322,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2090411780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2089917419, guid: 7a6d127e9632ba740acb049392f902e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1399177531}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3360ccbc88433e640b95f53636867d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
