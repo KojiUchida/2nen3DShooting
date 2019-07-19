@@ -10,9 +10,11 @@ public class AI : MonoBehaviour
     int score = 10;
     [SerializeField, Header("死亡時パーティクル")]
     ParticleSystem deadParticle;
+    [SerializeField, Header("点滅の間隔")]
+    float blinkDelay = 0.05f;
 
+    Color damageColor;
     protected int hp;
-
     protected Material mat;
 
     // Start is called before the first frame update
@@ -30,6 +32,7 @@ public class AI : MonoBehaviour
 
     public virtual void Init()
     {
+        damageColor = new Color(0.1f, 0.1f, 0.1f, 1.0f);
         hp = maxHP;
         mat = GetComponentInChildren<MeshRenderer>().material;
     }
@@ -65,7 +68,7 @@ public class AI : MonoBehaviour
         if (!DamageObj(other)) return;
         var bullet = other.GetComponent<Bullet>();
         hp -= bullet.GetDamage();
-        mat.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+        StartCoroutine(Blink());
     }
 
     public void Damage(int damage)
@@ -81,5 +84,12 @@ public class AI : MonoBehaviour
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+    }
+
+    IEnumerator Blink()
+    {
+        mat.color = damageColor;
+        yield return new WaitForSeconds(blinkDelay);
+        mat.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }
