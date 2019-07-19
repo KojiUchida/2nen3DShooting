@@ -78,6 +78,8 @@ MonoBehaviour:
   damage: 10
   speed: 30
   isReflect: 0
+  player: {fileID: 3892635389216580165, guid: b16b8d9fee219414ab078095d7a22475, type: 3}
+  kind: 1
 --- !u!1001 &6373750749661853013
 PrefabInstance:
   m_ObjectHideFlags: 0

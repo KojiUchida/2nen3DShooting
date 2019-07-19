@@ -478,7 +478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4790767624333903567, guid: d3e32766aee3eff408396fa6d432e7d4, type: 3}
   muzzle: {fileID: 3892635388500622283}
-  shootsTime: 0.3
+  shootsTime: 0.1
 --- !u!114 &3892635389216580164
 MonoBehaviour:
   m_ObjectHideFlags: 0
