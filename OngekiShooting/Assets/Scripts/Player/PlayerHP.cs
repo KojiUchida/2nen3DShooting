@@ -11,17 +11,21 @@ public class PlayerHP : MonoBehaviour
     ParticleSystem deadParticle;
     [SerializeField, Header("死亡SE")]
     AudioClip deadSE;
+    [SerializeField, Header("点滅までの時間(フレーム)")]
+    int blinkTime = 5;
 
     [HideInInspector]
     public int hp;//ヒットポイント
     private bool isDamage;
-    Material mat;
+    MeshRenderer mesh;
+    private int blinkCount;
 
     void Start()
     {
         hp = maxHP;
         isDamage = false;
-        mat = gameObject.GetComponentInChildren<MeshRenderer>().material;
+        mesh = gameObject.GetComponentInChildren<MeshRenderer>();
+        blinkCount = 10;
     }
 
     // Update is called once per frame
@@ -63,14 +67,18 @@ public class PlayerHP : MonoBehaviour
         isDamage = true;
         yield return new WaitForSeconds(invincibleTime);
         isDamage = false;
-        mat.color = new Color(1f, 1f, 1f, 1);
+        mesh.enabled = true;
     }
 
     void Blink()
     {
         if (!isDamage) return;
-        float level = Mathf.Abs(Mathf.Sin(Time.time * 10f));
-        mat.color = new Color(1f, 1f, 1f, level);
+        blinkCount++;
+        if (blinkCount > blinkTime)
+        {
+            mesh.enabled = !mesh.enabled;
+            blinkCount = 0;
+        }
     }
 }
 
