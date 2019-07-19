@@ -108,6 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 10
+  score: 10
+  deadParticle: {fileID: 5100710565566265483, guid: 04027fab58139e5419f54c98a38bf5fc,
+    type: 3}
   enemyBullet: {fileID: 2878587715150794118, guid: 8627b0c8c842e0f45b90d761f1e34eab,
     type: 3}
   deadBullet: {fileID: 8935237196975321954, guid: 0feeb7c31256af6458b3eeeda10d80b5,

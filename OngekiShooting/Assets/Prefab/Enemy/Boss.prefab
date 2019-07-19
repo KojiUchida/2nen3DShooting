@@ -66,7 +66,7 @@ MonoBehaviour:
   speed: 300
   bulletSpeed: 50
   player: {fileID: 3892635389216580165, guid: b16b8d9fee219414ab078095d7a22475, type: 3}
-  bulletPrefab: {fileID: 2878587715150794118, guid: 8627b0c8c842e0f45b90d761f1e34eab,
+  bulletPrefab: {fileID: 6911458343905144445, guid: 2f28e280c373e33479b4d0f4789368d1,
     type: 3}
   attackTime1: 0.3
   attackTime2: 2
@@ -80,6 +80,8 @@ MonoBehaviour:
     type: 3}
   muzzle: {fileID: 2456754513636749946}
   shootsTime: 0.2
+  deadParticle: {fileID: 1197710827036720507, guid: 3aca085a24d56144586a3a73d16a41ca,
+    type: 3}
 --- !u!65 &6160317244124518676
 BoxCollider:
   m_ObjectHideFlags: 0

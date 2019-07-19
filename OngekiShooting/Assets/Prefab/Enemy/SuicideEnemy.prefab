@@ -48,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   score: 10
-  deadParticle: {fileID: 0}
+  deadParticle: {fileID: 5100710565566265483, guid: 04027fab58139e5419f54c98a38bf5fc,
+    type: 3}
   explodeRange: 10
   damage: 100
 --- !u!82 &3718643192354926013

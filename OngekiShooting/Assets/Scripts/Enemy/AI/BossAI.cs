@@ -35,7 +35,10 @@ public class BossAI : MonoBehaviour
     private bool barierFlag;//バリア用フラグ
     private float migrationTime;//移動用
     private bool migrationFlag;//移動用フラグ
-    
+
+    [SerializeField, Header("死亡時パーティクル")]
+    ParticleSystem deadParticle;
+
 
     void Start()
     {
@@ -142,6 +145,7 @@ public class BossAI : MonoBehaviour
     {
         if(hp<=0)
         {
+            Instantiate(deadParticle, transform.position, Quaternion.identity);
             SceneState.isBossDead = true;
             Destroy(gameObject);
         }
