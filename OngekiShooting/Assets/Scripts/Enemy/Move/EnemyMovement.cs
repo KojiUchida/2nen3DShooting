@@ -27,13 +27,19 @@ public class EnemyMovement : MonoBehaviour
 
     public virtual void Move()
     {
-
+        DeathZorn();
     }
 
     public void SetSpeed(float speed) { moveSpeed = speed; }
 
     private void OnBecameInvisible()
     {
+        Destroy(gameObject);
+    }
+
+    private void DeathZorn()//z<=-25で死亡
+    {
+        if (gameObject.transform.position.z >= -25) return;
         Destroy(gameObject);
     }
 }
