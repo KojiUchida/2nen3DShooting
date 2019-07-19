@@ -9,8 +9,6 @@ public class SceneSystem : MonoBehaviour
 {
     [SerializeField, Header("現在のシーンタイプ")]
     SceneType sceneType;
-    //[SerializeField, Header("サウンドマネージャー")]
-    //BGMManager bgmManager;
     [SerializeField, Header("イベントシステム")]
     EventSystem eventSystem;
     [SerializeField, Header("初めに選択するボタン")]
@@ -21,13 +19,17 @@ public class SceneSystem : MonoBehaviour
     float gameOverDelay = 1.0f;
     [SerializeField, Header("ゲームオーバー表示までの時間")]
     float clearDelay = 3.0f;
+    [SerializeField, Header("ロード時に再生するBGM")]
+    int firstBGM = 0;
 
+    SoundManager soundManager;
     bool previousIsDead;
     bool previousIsBossDead;
 
     private void Start()
     {
-        //bgmManager.PlayBGM((int)sceneType);
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        soundManager.PlayBgm(firstBGM);
         previousIsBossDead = true;
         previousIsDead = true;
         Fade.FadeIn();
