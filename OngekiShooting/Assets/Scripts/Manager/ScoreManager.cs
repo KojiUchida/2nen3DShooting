@@ -9,6 +9,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField, Header("スコア表示テキスト")]
     Text scoreText;
 
+    private int score;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,9 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        scoreText.text = currentScore.ToString("D7");
+        score++;
+        score = Mathf.Clamp(score, 0, currentScore);
+        scoreText.text = score.ToString("D7");
     }
 
     public static void AddScore(int score)
