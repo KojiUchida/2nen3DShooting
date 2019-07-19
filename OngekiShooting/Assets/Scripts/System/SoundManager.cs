@@ -18,9 +18,9 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     [SerializeField, Header("SE")]
     AudioClip[] se;
     [SerializeField, Header("音のフェードアウト時の間隔")]
-    float fadeOutTime = 1.0f;
+    public float fadeOutTime = 1.0f;
     [SerializeField, Header("音のフェードインの間隔")]
-    float fadeInTime = 1.0f;
+    public float fadeInTime = 1.0f;
 
     Dictionary<string, int> bgmIndex = new Dictionary<string, int>();
     Dictionary<string, int> seIndex = new Dictionary<string, int>();

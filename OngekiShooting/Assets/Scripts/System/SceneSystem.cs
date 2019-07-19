@@ -21,10 +21,15 @@ public class SceneSystem : MonoBehaviour
     float clearDelay = 3.0f;
     [SerializeField, Header("ロード時に再生するBGM")]
     int firstBGM = 0;
+    [SerializeField, Header("ボスが出てくるまでの時間")]
+    float bossTime = 100f;
 
     SoundManager soundManager;
     bool previousIsDead;
     bool previousIsBossDead;
+
+    float timer;
+    bool previousBoss;
 
     private void Start()
     {
@@ -33,6 +38,8 @@ public class SceneSystem : MonoBehaviour
         previousIsBossDead = true;
         previousIsDead = true;
         Fade.FadeIn();
+        if (sceneType == SceneType.GamePlay)
+            timer = 0;
     }
 
     private void InitState()
@@ -50,6 +57,17 @@ public class SceneSystem : MonoBehaviour
         previousIsDead = SceneState.isDead;
         previousIsBossDead = SceneState.isBossDead;
         gameoverUI.SetActive(SceneState.isGameOver);
+        previousBoss = IsBoss();
+
+        if (sceneType == SceneType.GamePlay)
+            timer += Time.deltaTime;
+        if (!previousBoss && IsBoss())
+            StartCoroutine(BossCoroutine());
+    }
+
+    bool IsBoss()
+    {
+        return timer > bossTime;
     }
 
     void LoadScene(string nextScene)
@@ -119,6 +137,13 @@ public class SceneSystem : MonoBehaviour
         SceneState.isBossDead = true;
         SceneState.isClear = false;
         LoadResult();
+    }
+
+    IEnumerator BossCoroutine()
+    {
+        soundManager.SetFade();
+        yield return new WaitForSeconds(soundManager.fadeOutTime);
+        soundManager.PlayBgm(3);
     }
 
     enum SceneType
