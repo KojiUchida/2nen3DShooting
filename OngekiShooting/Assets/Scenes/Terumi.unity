@@ -5710,6 +5710,7 @@ MonoBehaviour:
   invincibleTime: 3
   deadParticle: {fileID: 0}
   deadSE: {fileID: 0}
+  blinkTime: 5
   hp: 9999
 --- !u!1 &936287666
 GameObject:
@@ -20488,6 +20489,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerDeadPt1
       objectReference: {fileID: 0}
+    - target: {fileID: 1197710827036720501, guid: 3aca085a24d56144586a3a73d16a41ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1197710827036720504, guid: 3aca085a24d56144586a3a73d16a41ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20785,11 +20791,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyDeadPt1
       objectReference: {fileID: 0}
-    - target: {fileID: 8845820414873594038, guid: 04027fab58139e5419f54c98a38bf5fc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8623879029196457500, guid: 04027fab58139e5419f54c98a38bf5fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20803,7 +20804,7 @@ PrefabInstance:
     - target: {fileID: 8623879029196457500, guid: 04027fab58139e5419f54c98a38bf5fc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15
+      value: 17.2
       objectReference: {fileID: 0}
     - target: {fileID: 8623879029196457500, guid: 04027fab58139e5419f54c98a38bf5fc,
         type: 3}
@@ -20844,10 +20845,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 84241379, guid: 04027fab58139e5419f54c98a38bf5fc, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04027fab58139e5419f54c98a38bf5fc, type: 3}
