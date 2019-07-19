@@ -14,10 +14,23 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     AudioClip[] bgm;
     [SerializeField, Tooltip("SE")]
     AudioClip[] se;
+    [SerializeField, Tooltip("BGM")]
+    float fadeOutTime = 1.0f;
+    [SerializeField, Tooltip("BGM")]
+    float fadeInTime = 1.0f;
+
     Dictionary<string, int> bgmIndex = new Dictionary<string, int>();
     Dictionary<string, int> seIndex = new Dictionary<string, int>();
     AudioSource bgmAudioSource;
     AudioSource seAudioSource;
+
+    public bool isFade;
+
+    private void Start()
+    {
+        isFade = false;
+    }
+
     public float Volume
     {
         set
@@ -31,6 +44,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
             return volume;
         }
     }
+
     public float BgmVolume
     {
         set
@@ -43,6 +57,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
             return bgmVolume;
         }
     }
+
     public float SeVolume
     {
         set
@@ -55,6 +70,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
             return seVolume;
         }
     }
+
     public void Awake()
     {
         if (this != Instance)
@@ -66,6 +82,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         bgmAudioSource = gameObject.AddComponent<AudioSource>();
         seAudioSource = gameObject.AddComponent<AudioSource>();
     }
+
     public int GetBgmIndex(string name)
     {
         if (bgmIndex.ContainsKey(name))
@@ -78,6 +95,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
             return 0;
         }
     }
+
     public int GetSeIndex(string name)
     {
         if (seIndex.ContainsKey(name))
@@ -90,37 +108,57 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
             return 0;
         }
     }
+
     //BGM再生
     public void PlayBgm(int index)
     {
+        isFade = false;
         index = Mathf.Clamp(index, 0, bgm.Length);
         bgmAudioSource.clip = bgm[index];
         bgmAudioSource.loop = true;
         bgmAudioSource.volume = BgmVolume * Volume;
         bgmAudioSource.Play();
     }
+
     public void PlayBgmByName(string name)
     {
         PlayBgm(GetBgmIndex(name));
     }
+
     public void StopBgm()
     {
         bgmAudioSource.Stop();
         bgmAudioSource.clip = null;
     }
+
     //SE再生
     public void PlaySe(int index)
     {
         index = Mathf.Clamp(index, 0, se.Length);
         seAudioSource.PlayOneShot(se[index], SeVolume * Volume);
     }
+
     public void PlaySeByName(string name)
     {
         PlaySe(GetSeIndex(name));
     }
+
     public void StopSe()
     {
         seAudioSource.Stop();
         seAudioSource.clip = null;
+    }
+
+    private void Update()
+    {
+        if (isFade) bgmVolume -= fadeOutTime * Time.deltaTime;
+        else bgmVolume += fadeInTime * Time.deltaTime;
+        bgmVolume = Mathf.Clamp(bgmVolume, 0, 1);
+        bgmAudioSource.volume = BgmVolume * Volume;
+    }
+
+    public void SetFade()
+    {
+        isFade = true;
     }
 }
