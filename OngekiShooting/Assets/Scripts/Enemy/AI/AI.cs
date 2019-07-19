@@ -26,6 +26,7 @@ public class AI : MonoBehaviour
     {
         Attack();
         Death();
+        DeathZorn();
     }
 
     public virtual void Init()
@@ -80,6 +81,11 @@ public class AI : MonoBehaviour
 
     private void OnBecameInvisible()
     {
+        Destroy(gameObject);
+    }
+    private void DeathZorn()//z<=-25で死亡
+    {
+        if (gameObject.transform.position.z >= -25) return;
         Destroy(gameObject);
     }
 }
