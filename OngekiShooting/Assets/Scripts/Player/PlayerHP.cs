@@ -9,8 +9,6 @@ public class PlayerHP : MonoBehaviour
     public float invincibleTime = 3;//無敵時間
     [SerializeField, Header("死亡時パーティクル")]
     ParticleSystem deadParticle;
-    [SerializeField, Header("死亡SE")]
-    AudioClip deadSE;
     [SerializeField, Header("点滅までの時間(フレーム)")]
     int blinkTime = 5;
 
@@ -39,7 +37,6 @@ public class PlayerHP : MonoBehaviour
     void Death()
     {
         if (hp > 0) return;
-        AudioSource.PlayClipAtPoint(deadSE, transform.position);
         Instantiate(deadParticle, transform.position, Quaternion.identity);
         SceneState.isDead = true;
         gameObject.SetActive(false);
