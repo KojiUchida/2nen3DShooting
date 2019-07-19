@@ -105,8 +105,10 @@ public class SceneSystem : MonoBehaviour
 
     IEnumerator GameOverCoroutine()
     {
+        soundManager.StopBgm();
         yield return new WaitForSeconds(gameOverDelay);
         SceneState.isGameOver = true;
+        soundManager.PlayBgm(2);
     }
 
     IEnumerator ClearCoroutine()
