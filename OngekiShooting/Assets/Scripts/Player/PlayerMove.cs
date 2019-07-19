@@ -18,6 +18,8 @@ public class PlayerMove : MonoBehaviour
     int secondHeal = 20;
     [SerializeField, Header("3段階目の回復量")]
     int maxHeal = 30;
+    [SerializeField, Header("傾き速度")]
+    float tiltSpeed = 0.2f;
 
     PlayerHP playerHP;
 
@@ -25,6 +27,8 @@ public class PlayerMove : MonoBehaviour
     public float gauge;
 
     float rotVelocity = 0;
+    float tilt = 0;
+    float tiltVel;
 
     void Start()
     {
@@ -60,20 +64,22 @@ public class PlayerMove : MonoBehaviour
     void Tilt(Vector3 velocity)
     {
         Vector3 rot = transform.rotation.eulerAngles;
-
         if (velocity.x > 0)
         {
-            rot.z = -30;
+            tilt = Mathf.SmoothDamp(tilt, -30, ref tiltVel, tiltSpeed);
+            rot.z = tilt;
             transform.rotation = Quaternion.Euler(rot);
         }
         else if (velocity.x < 0)
         {
-            rot.z = 30;
+            tilt = Mathf.SmoothDamp(tilt, 30, ref tiltVel, tiltSpeed);
+            rot.z = tilt;
             transform.rotation = Quaternion.Euler(rot);
         }
         else
         {
-            rot.z = 0;
+            tilt = Mathf.SmoothDamp(tilt, 0, ref tiltVel, tiltSpeed);
+            rot.z = tilt;
             transform.rotation = Quaternion.Euler(rot);
         }
     }
