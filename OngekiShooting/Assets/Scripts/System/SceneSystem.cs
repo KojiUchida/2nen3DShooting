@@ -59,6 +59,8 @@ public class SceneSystem : MonoBehaviour
 
     public void FadeLoad(string nextScene)
     {
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        soundManager?.SetFade();
         Fade.FadeOut(nextScene);
     }
 
@@ -106,6 +108,7 @@ public class SceneSystem : MonoBehaviour
     IEnumerator GameOverCoroutine()
     {
         yield return new WaitForSeconds(gameOverDelay);
+        soundManager.PlayBgm(2);
         SceneState.isGameOver = true;
     }
 

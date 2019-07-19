@@ -466,6 +466,7 @@ MonoBehaviour:
   firstHeal: 0
   secondHeal: 30
   maxHeal: 30
+  tiltSpeed: 0.2
   gauge: 0
 --- !u!114 &3892635389216580163
 MonoBehaviour:
@@ -481,7 +482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4790767624333903567, guid: d3e32766aee3eff408396fa6d432e7d4, type: 3}
   muzzle: {fileID: 3892635388500622283}
-  shootsTime: 0.3
+  shootsTime: 0.1
 --- !u!114 &3892635389216580164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,6 +500,7 @@ MonoBehaviour:
   deadParticle: {fileID: 1197710827036720507, guid: 3aca085a24d56144586a3a73d16a41ca,
     type: 3}
   deadSE: {fileID: 8300000, guid: b47a28417e0bbc34881c18a597b52176, type: 3}
+  blinkTime: 5
   hp: 9999
 --- !u!82 &3388571755924633997
 AudioSource:
