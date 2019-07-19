@@ -9,8 +9,16 @@ public class Bullet : MonoBehaviour
     [SerializeField, Header("弾の速度")]
     protected float speed = 100;
 
+    [SerializeField, Header("死亡までの時間")]
+    protected float deathTime = 5.0f;
+
     [HideInInspector]
     public bool isReflect;
+
+    private void Awake()
+    {
+        Destroy(gameObject, deathTime);
+    }
 
     private void FixedUpdate()
     {
