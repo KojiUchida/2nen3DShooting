@@ -70,10 +70,10 @@ MonoBehaviour:
     type: 3}
   attackTime1: 0.3
   attackTime2: 2
-  maxHp: 100
+  maxHp: 150
   hp: 0
-  rightBulletPos: 1
-  leftBulletPos: 1
+  rightBulletPos: 0.7
+  leftBulletPos: 0.7
   enemy1: {fileID: 1505494554205524770, guid: 66de760021895834e8d673a4b9b5fc5b, type: 3}
   enemy2: {fileID: 1505494554205524770, guid: 66de760021895834e8d673a4b9b5fc5b, type: 3}
   bossBullet: {fileID: 2878587715150794118, guid: 8627b0c8c842e0f45b90d761f1e34eab,
