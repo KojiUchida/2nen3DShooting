@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     [SerializeField, Header("弾の速度")]
     protected float speed = 100;
     
+    
 
     [HideInInspector]
     public bool isReflect;
