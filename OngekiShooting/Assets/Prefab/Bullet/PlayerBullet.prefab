@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c781512a01e511f4c9ce78ea59f022f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 4
   speed: 30
   isReflect: 0
 --- !u!1001 &9018558753955796070
@@ -145,6 +145,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 58de0d99ad11cd64bba6b70d338e5a76, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c35ffe4a8f8af1e47ab13834914ebc8f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58de0d99ad11cd64bba6b70d338e5a76, type: 3}
 --- !u!4 &9018558753955401444 stripped
