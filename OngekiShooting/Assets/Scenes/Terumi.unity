@@ -232,6 +232,7 @@ MonoBehaviour:
   maxHP: 10
   score: 10
   deadParticle: {fileID: 0}
+  blinkDelay: 0.05
   player: {fileID: 796018860}
 --- !u!54 &229365135
 Rigidbody:
@@ -5693,6 +5694,7 @@ MonoBehaviour:
   firstHeal: 10
   secondHeal: 20
   maxHeal: 30
+  tiltSpeed: 0.2
   gauge: 0
 --- !u!114 &796018868
 MonoBehaviour:

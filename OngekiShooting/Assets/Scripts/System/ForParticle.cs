@@ -18,7 +18,7 @@ public class ForParticle : MonoBehaviour
     void Update()
     {
         countTime += Time.deltaTime;
-        if(countTime>=0.6f)
+        if(countTime>=0.25f)
         {
             particle2.SetActive(true);
         }
