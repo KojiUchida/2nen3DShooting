@@ -838,6 +838,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
+        type: 3}
+      propertyPath: bossTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1256393203, guid: 7af419d762207484a9235e6770e4ee5f, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 4
