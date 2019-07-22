@@ -605,32 +605,32 @@ PrefabInstance:
     - target: {fileID: 8093934923743533956, guid: d7f0cbd4ac95be646afd0904accfb195,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.7
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 8093934923743533956, guid: d7f0cbd4ac95be646afd0904accfb195,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.19
+      value: -14.09
       objectReference: {fileID: 0}
     - target: {fileID: 8093934923743533956, guid: d7f0cbd4ac95be646afd0904accfb195,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22644731
+      value: 0.103638515
       objectReference: {fileID: 0}
     - target: {fileID: 8093934923743533956, guid: d7f0cbd4ac95be646afd0904accfb195,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8093934923743533956, guid: d7f0cbd4ac95be646afd0904accfb195,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8093934923743533956, guid: d7f0cbd4ac95be646afd0904accfb195,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.97402346
+      value: 0.994615
       objectReference: {fileID: 0}
     - target: {fileID: 8093934923743533956, guid: d7f0cbd4ac95be646afd0904accfb195,
         type: 3}
@@ -640,7 +640,7 @@ PrefabInstance:
     - target: {fileID: 8093934923743533956, guid: d7f0cbd4ac95be646afd0904accfb195,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 26.176
+      value: 11.897
       objectReference: {fileID: 0}
     - target: {fileID: 8093934923743533956, guid: d7f0cbd4ac95be646afd0904accfb195,
         type: 3}
@@ -1220,6 +1220,16 @@ PrefabInstance:
         type: 3}
       propertyPath: firstBGM
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
+        type: 3}
+      propertyPath: sceneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
+        type: 3}
+      propertyPath: bossTime
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 2079398238527029217, guid: 7af419d762207484a9235e6770e4ee5f,
         type: 3}
