@@ -1290,16 +1290,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3892635389727660265, guid: b16b8d9fee219414ab078095d7a22475,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194130928287985773, guid: b16b8d9fee219414ab078095d7a22475,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3892635389216580162, guid: b16b8d9fee219414ab078095d7a22475,
         type: 3}
       propertyPath: stageWidth
@@ -1309,6 +1299,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892635389727660265, guid: b16b8d9fee219414ab078095d7a22475,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194130928287985773, guid: b16b8d9fee219414ab078095d7a22475,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b16b8d9fee219414ab078095d7a22475, type: 3}
@@ -1387,6 +1387,14 @@ PrefabInstance:
       propertyPath: se.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 34cf7a5f3df53a041b891dbc3073d0a6, type: 3}
+    - target: {fileID: 2089917419, guid: 7a6d127e9632ba740acb049392f902e0, type: 3}
+      propertyPath: seVolume
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089917419, guid: 7a6d127e9632ba740acb049392f902e0, type: 3}
+      propertyPath: bgmMaxVolume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a6d127e9632ba740acb049392f902e0, type: 3}
 --- !u!1 &1565832925

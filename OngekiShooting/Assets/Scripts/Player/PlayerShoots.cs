@@ -26,7 +26,7 @@ public class PlayerShoots : MonoBehaviour
 
     void Shoots()
     {
-        if (!Input.GetKey(KeyCode.Z)) return;
+        if (!(Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.K))) return;
         if (time < shootsTime) return;
         soundManager.PlaySe(2);
         Instantiate(bullet, muzzle.position, Quaternion.identity);

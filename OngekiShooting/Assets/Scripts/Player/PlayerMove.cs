@@ -86,7 +86,7 @@ public class PlayerMove : MonoBehaviour
 
     void Reflection()
     {
-        if (!Input.GetKeyDown(KeyCode.X)) return;
+        if (!(Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.L))) return;
         if (gauge / gaugeTime < 1.0f / 3.0f) return;
 
         if (gauge / gaugeTime == 1.0f) MaxReflection();

@@ -33,6 +33,8 @@ public class SceneSystem : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         soundManager.PlayBgm(firstBGM);
         previousIsBossDead = true;
@@ -59,7 +61,7 @@ public class SceneSystem : MonoBehaviour
         gameoverUI.SetActive(SceneState.isGameOver);
         previousBoss = IsBoss();
 
-        if (sceneType == SceneType.GamePlay)
+        if (sceneType == SceneType.GamePlay && !SceneState.isGameOver)
             timer += Time.deltaTime;
         if (!previousBoss && IsBoss())
             StartCoroutine(BossCoroutine());

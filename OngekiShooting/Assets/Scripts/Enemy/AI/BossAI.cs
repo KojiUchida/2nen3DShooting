@@ -57,7 +57,7 @@ public class BossAI : MonoBehaviour
         barierFlag = false;
         migrationTime = 0;
         migrationFlag = false;
-        
+
     }
 
     // Update is called once per frame
@@ -65,17 +65,17 @@ public class BossAI : MonoBehaviour
     {
         Shoots();
         Dead();
-        switch(attackBehaviour)
+        switch (attackBehaviour)
         {
-            case 0:Attack1();break;
-            case 1:Attack2();break;
-            //case 2:Attack3();break;
+            case 0: Attack1(); break;
+            case 1: Attack2(); break;
+                //case 2:Attack3();break;
         }
-        switch(hpBehaviour)
+        switch (hpBehaviour)
         {
             case 0: Move1(); break;
             case 1: Move2(); break;
-            //case 2: Move3(); break;
+                //case 2: Move3(); break;
         }
         countTime += Time.deltaTime;
         time += Time.deltaTime;
@@ -86,7 +86,7 @@ public class BossAI : MonoBehaviour
             hpBehaviour = 1;
         }
 
-        if(barierTime>=5)
+        if (barierTime >= 5)
         {
             if (barierFlag) barierFlag = false;
             else barierFlag = true;
@@ -106,15 +106,15 @@ public class BossAI : MonoBehaviour
         if (migrationFlag) rigidbody.velocity = new Vector3(player.transform.position.x - rigidbody.position.x, 0, 0) * speed * Time.deltaTime;
         else rigidbody.velocity = Vector3.zero;
 
-        if (migrationTime>=3)
+        if (migrationTime >= 3)
         {
             if (migrationFlag) migrationFlag = false;
             else migrationFlag = true;
-            
+
             migrationTime = 0;
         }
     }
-    
+
 
     void Attack1()
     {
@@ -130,7 +130,7 @@ public class BossAI : MonoBehaviour
 
     void Attack2()
     {
-        if(attackTime2<=countTime)
+        if (attackTime2 <= countTime)
         {
             countTime = 0;
             if (enemy1 == null || enemy2 == null) return;
@@ -140,10 +140,10 @@ public class BossAI : MonoBehaviour
             Instantiate(enemy2, transform.position + new Vector3(x, 0), Quaternion.identity);
         }
     }
-    
+
     void Dead()
     {
-        if(hp<=0)
+        if (hp <= 0)
         {
             Instantiate(deadParticle, transform.position, Quaternion.identity);
             SceneState.isBossDead = true;
@@ -153,7 +153,7 @@ public class BossAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(attackBehaviour==2)
+        if (attackBehaviour == 2)
         {
             ReflectBullet(other);
             if (other.tag == "ReflectBullet")
@@ -163,7 +163,7 @@ public class BossAI : MonoBehaviour
         }
         else
         {
-            if (other.tag == "PlayerBullet")
+            if (other.tag == "PlayerBullet" || other.tag == "ReflectBullet")
             {
                 hp--;
             }
