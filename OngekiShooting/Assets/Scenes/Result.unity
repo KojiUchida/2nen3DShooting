@@ -500,11 +500,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 691263297}
+    m_SelectOnRight: {fileID: 691263297}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -664,6 +664,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
+        type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 417077078}
+    - target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
+        type: 3}
+      propertyPath: firstBGM
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
+        type: 3}
+      propertyPath: sceneType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2079398238527029217, guid: 7af419d762207484a9235e6770e4ee5f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -718,21 +733,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
-        type: 3}
-      propertyPath: eventSystem
-      value: 
-      objectReference: {fileID: 417077078}
-    - target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
-        type: 3}
-      propertyPath: firstBGM
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079398238527029216, guid: 7af419d762207484a9235e6770e4ee5f,
-        type: 3}
-      propertyPath: sceneType
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7af419d762207484a9235e6770e4ee5f, type: 3}
@@ -834,11 +834,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 130615294}
+    m_SelectOnRight: {fileID: 130615294}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
